@@ -1,0 +1,4 @@
+email|phonenumber|address|etc
+Health goal1 |health goal2|health goal3
+Date1, Blood Pressure1,Heart Rate1, Cholestrol1|Date2, Blood Pressure2,Heart Rate2, Cholestrol2|Date3, Blood Pressure3,Heart Rate3, Cholestrol3
+Date1, Food Intake1,Exercise1|Date2, Food Intake2,Exercise2|Date3,Food Intake3,Exercise3
