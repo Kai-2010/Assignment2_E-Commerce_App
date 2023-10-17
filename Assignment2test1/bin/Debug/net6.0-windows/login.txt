@@ -1,0 +1,8 @@
+peter.pan@hotmail.com|123456|Peter|Pan|0490564321|12 Main Street|M
+tammy@tammy.com|123456|Tammy|Tammy|0456789010|12 A Street|F
+yy@yy.com|1234567aA*|uyug|ygug|0424936302|12 wat|P
+test.test@gmail.com|1234567Aa@|test|test|0490765432|12 Tea Street|F
+bb@bb.com|1234567aA#|ghjgb|ghhk|0424936302|12 wat|M
+rr@ff.com|1234567sS@|gg|gg|0435465734|111|M
+t@t.com|1234567Aa@|tttt|ttttt|0490876543|12 Main Street|F
+lat.tal@tal.com|1234567aA@|lat|tal|0448349524|12 runner|M
