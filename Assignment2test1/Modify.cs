@@ -28,126 +28,127 @@ namespace Assignment2test1
 		}
 		private void Modify_Load(object sender, EventArgs e)
 		{
-			textBox1.Text = loggedInCustomer.firstName;
-			textBox2.Text = loggedInCustomer.lastName;
-			textBox3.Text = loggedInCustomer.email;
-			textBox4.Text = loggedInCustomer.phoneNumber;
-			textBox5.Text = loggedInCustomer.address;
-			textBox6.Text = loggedInCustomer.password;
-			textBox7.Text = loggedInCustomer.password;
+			FN.Text = loggedInCustomer.firstName;
+			LN.Text = loggedInCustomer.lastName;
+			Email.Text = loggedInCustomer.email;
+			phone.Text = loggedInCustomer.phoneNumber;
+			Add.Text = loggedInCustomer.address;
+			Password.Text = loggedInCustomer.password;
+			RepeatPassword.Text = loggedInCustomer.password;
+			gender.Text = loggedInCustomer.sex;
 		}
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
-			loggedInCustomer.firstName = textBox1.Text;
+			loggedInCustomer.firstName = FN.Text;
 		}
 
 		private void textBox2_TextChanged(object sender, EventArgs e)
 		{
-			loggedInCustomer.lastName = textBox2.Text;
+			loggedInCustomer.lastName = LN.Text;
 
 		}
 
 		private void textBox3_TextChanged(object sender, EventArgs e)
 		{
-			loggedInCustomer.email = textBox3.Text;
+			loggedInCustomer.email = Email.Text;
 
 		}
 
 		private void textBox4_TextChanged(object sender, EventArgs e)
 		{
-			loggedInCustomer.phoneNumber = textBox4.Text;
+			loggedInCustomer.phoneNumber = phone.Text;
 
 		}
 
 		private void textBox5_TextChanged(object sender, EventArgs e)
 		{
-			loggedInCustomer.address = textBox5.Text;
+			loggedInCustomer.address = Add.Text;
 		}
 
 		private void textBox6_TextChanged(object sender, EventArgs e)
 		{
-			loggedInCustomer.password = textBox6.Text;
+			loggedInCustomer.password = Password.Text;
 
 		}
 
 		private void textBox7_TextChanged(object sender, EventArgs e)
 		{
-			repeatPassword = textBox7.Text;
+			repeatPassword = RepeatPassword.Text;
 
 		}
 		private void textBox4_Leave(object sender, EventArgs e)
 		{
-			if (utility.phoneValidation(textBox4.Text) == false || utility.phoneValidation1(textBox4.Text) == false)
+			if (utility.phoneValidation(phone.Text) == false || utility.phoneValidation1(phone.Text) == false)
 			{
 				MessageBox.Show("Please enter a valid phone number");
-				textBox4.Clear();
-				textBox4.Focus();
+				phone.Clear();
+				phone.Focus();
 			}
-			else if (string.IsNullOrEmpty(textBox4.Text) == true)
+			else if (string.IsNullOrEmpty(phone.Text) == true)
 			{
 				MessageBox.Show("Please fill in your phone number");
-				textBox4.Clear();
-				textBox4.Focus();
+				phone.Clear();
+				phone.Focus();
 			}
 			else
 			{
-				loggedInCustomer.phoneNumber = textBox4.Text;
+				loggedInCustomer.phoneNumber = phone.Text;
 			}
 		}
 		private void textBox5_Leave(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBox5.Text) == true)
+			if (string.IsNullOrEmpty(Add.Text) == true)
 			{
 				MessageBox.Show("Please fill in your address");
-				textBox5.Clear();
-				textBox5.Focus();
+				Add.Clear();
+				Add.Focus();
 			}
 			else
 			{
-				loggedInCustomer.address = textBox5.Text;
+				loggedInCustomer.address = Add.Text;
 			}
 		}
 		private void textBox6_Leave(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBox6.Text) == true)
+			if (string.IsNullOrEmpty(Password.Text) == true)
 			{
 				MessageBox.Show("Please fill in your password");
-				textBox6.Clear();
-				textBox6.Focus();
+				Password.Clear();
+				Password.Focus();
 			}
 			else if (utility.isPasswordValid(password) == false)
 			{
 				MessageBox.Show("Please fill a valid password");
-				textBox6.Clear();
-				textBox6.Focus();
+				Password.Clear();
+				Password.Focus();
 			}
 			else
 			{
-				loggedInCustomer.password = textBox6.Text;
+				loggedInCustomer.password = Password.Text;
 			}
 		}
 		private void textBox7_Leave(object sender, EventArgs e)
 		{
-			if (textBox6.Text != textBox7.Text)
+			if (Password.Text != RepeatPassword.Text)
 			{
 				MessageBox.Show("Reenter passwords. They are not matching");
-				textBox6.Clear();
-				textBox7.Clear();
-				textBox6.Focus();
+				Password.Clear();
+				RepeatPassword.Clear();
+				Password.Focus();
 			}
 			else
 			{
-				repeatPassword = textBox7.Text;
+				repeatPassword = RepeatPassword.Text;
 			}
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
-			if (textBox6.Text != textBox7.Text)
+			if (Password.Text != RepeatPassword.Text)
 			{
 				MessageBox.Show("Reenter passwords. They are not matching");
-				textBox6.Clear();
-				textBox7.Clear();
-				textBox6.Focus();
+				Password.Clear();
+				RepeatPassword.Clear();
+				Password.Focus();
 			}
 			else
 			{

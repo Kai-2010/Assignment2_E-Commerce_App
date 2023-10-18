@@ -33,14 +33,16 @@ namespace Assignment2test1
 				string element = postDetails[ii];
 				TextBox textBox = new TextBox();
 				textBox.Text = element;
-				textBox.Dock = DockStyle.Top;
-				panel1.Controls.Add(textBox);
+
+				flowLayoutPanel1.Controls.Add(textBox); // Use flowLayoutPanel1 here
+
+				Button replyButton = new Button();
+				replyButton.Text = "Reply";
+				replyButton.Tag = ii;
+				replyButton.Click += ReplyButton_Click;
+
+				flowLayoutPanel1.Controls.Add(replyButton); // Use flowLayoutPanel1 here
 			}
-		}
-
-		private void label1_Click(object sender, EventArgs e)
-		{
-
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -51,8 +53,8 @@ namespace Assignment2test1
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
-			textBox1.Text = userInput;
-			System.IO.File.AppendAllText(string.Format("post.txt"), (string.Format("," + textBox1)));
+			//textBox1.Text = userInput;
+			//System.IO.File.AppendAllText(string.Format("post.txt"), (string.Format("," + textBox1)));
 		}
 
 		private void panel1_Paint(object sender, PaintEventArgs e)
@@ -66,10 +68,10 @@ namespace Assignment2test1
 			new DashBoard(loggedInCustomer,listOfCustomers).Show();
 		}
 
-		private void button3_Click(object sender, EventArgs e)
+		private void ReplyButton_Click(object sender, EventArgs e)
 		{
-			string userInput = textBox1.Text; 
-			textBox1.Visible = true;
+			Button clickedButton = (Button)sender;
+			int postIndex = (int)clickedButton.Tag; // Retrieve the index
 		}
 	}
 }

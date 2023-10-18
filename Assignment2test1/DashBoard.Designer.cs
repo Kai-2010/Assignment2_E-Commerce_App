@@ -28,109 +28,33 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			button1 = new Button();
-			button2 = new Button();
-			button3 = new Button();
-			label1 = new Label();
-			label2 = new Label();
-			label3 = new Label();
 			button4 = new Button();
-			label5 = new Label();
 			button5 = new Button();
 			linkLabel1 = new LinkLabel();
 			button6 = new Button();
-			textBox1 = new TextBox();
-			button7 = new Button();
-			button8 = new Button();
+			linkLabel2 = new LinkLabel();
+			linkLabel3 = new LinkLabel();
+			linkLabel4 = new LinkLabel();
+			linkLabel5 = new LinkLabel();
+			label5 = new Label();
+			linkLabel6 = new LinkLabel();
 			SuspendLayout();
-			// 
-			// button1
-			// 
-			button1.Location = new Point(239, 97);
-			button1.Margin = new Padding(4, 5, 4, 5);
-			button1.Name = "button1";
-			button1.Size = new Size(107, 38);
-			button1.TabIndex = 0;
-			button1.Text = "button1";
-			button1.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			button2.Location = new Point(537, 97);
-			button2.Margin = new Padding(4, 5, 4, 5);
-			button2.Name = "button2";
-			button2.Size = new Size(107, 38);
-			button2.TabIndex = 1;
-			button2.Text = "button2";
-			button2.UseVisualStyleBackColor = true;
-			// 
-			// button3
-			// 
-			button3.Location = new Point(829, 97);
-			button3.Margin = new Padding(4, 5, 4, 5);
-			button3.Name = "button3";
-			button3.Size = new Size(107, 38);
-			button3.TabIndex = 2;
-			button3.Text = "button3";
-			button3.UseVisualStyleBackColor = true;
-			// 
-			// label1
-			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(0, 103);
-			label1.Margin = new Padding(4, 0, 4, 0);
-			label1.Name = "label1";
-			label1.Size = new Size(221, 25);
-			label1.TabIndex = 3;
-			label1.Text = "More info on Health Goals";
-			// 
-			// label2
-			// 
-			label2.AutoSize = true;
-			label2.Location = new Point(370, 103);
-			label2.Margin = new Padding(4, 0, 4, 0);
-			label2.Name = "label2";
-			label2.Size = new Size(168, 25);
-			label2.TabIndex = 4;
-			label2.Text = "More about metrics";
-			// 
-			// label3
-			// 
-			label3.AutoSize = true;
-			label3.Location = new Point(666, 103);
-			label3.Margin = new Padding(4, 0, 4, 0);
-			label3.Name = "label3";
-			label3.Size = new Size(161, 25);
-			label3.TabIndex = 5;
-			label3.Text = "Health information";
 			// 
 			// button4
 			// 
-			button4.Location = new Point(854, 20);
-			button4.Margin = new Padding(4, 5, 4, 5);
+			button4.Location = new Point(598, 12);
 			button4.Name = "button4";
-			button4.Size = new Size(201, 38);
+			button4.Size = new Size(141, 23);
 			button4.TabIndex = 7;
 			button4.Text = "Community Forum";
 			button4.UseVisualStyleBackColor = true;
 			button4.Click += button4_Click;
 			// 
-			// label5
-			// 
-			label5.AutoSize = true;
-			label5.Location = new Point(497, 40);
-			label5.Margin = new Padding(4, 0, 4, 0);
-			label5.Name = "label5";
-			label5.Size = new Size(59, 25);
-			label5.TabIndex = 8;
-			label5.Text = "label5";
-			// 
 			// button5
 			// 
-			button5.Location = new Point(923, 313);
-			button5.Margin = new Padding(4, 5, 4, 5);
+			button5.Location = new Point(646, 188);
 			button5.Name = "button5";
-			button5.Size = new Size(107, 38);
+			button5.Size = new Size(75, 23);
 			button5.TabIndex = 10;
 			button5.Text = "Get News";
 			button5.UseVisualStyleBackColor = true;
@@ -139,11 +63,10 @@
 			// linkLabel1
 			// 
 			linkLabel1.AutoSize = true;
-			linkLabel1.Location = new Point(17, 320);
-			linkLabel1.Margin = new Padding(4, 0, 4, 0);
-			linkLabel1.MaximumSize = new Size(1429, 1667);
+			linkLabel1.Location = new Point(12, 192);
+			linkLabel1.MaximumSize = new Size(1000, 1000);
 			linkLabel1.Name = "linkLabel1";
-			linkLabel1.Size = new Size(127, 25);
+			linkLabel1.Size = new Size(86, 15);
 			linkLabel1.TabIndex = 11;
 			linkLabel1.TabStop = true;
 			linkLabel1.Text = "NewsLinkLabel";
@@ -151,62 +74,96 @@
 			// 
 			// button6
 			// 
-			button6.Location = new Point(34, 20);
+			button6.Location = new Point(24, 12);
+			button6.Margin = new Padding(2, 2, 2, 2);
 			button6.Name = "button6";
-			button6.Size = new Size(112, 34);
+			button6.Size = new Size(74, 27);
 			button6.TabIndex = 12;
 			button6.Text = "Logout";
 			button6.UseVisualStyleBackColor = true;
 			button6.Click += button6_Click;
 			// 
-			// textBox1
+			// linkLabel2
 			// 
-			textBox1.Location = new Point(12, 164);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(150, 31);
-			textBox1.TabIndex = 13;
-			textBox1.Text = "Modify Details";
+			linkLabel2.AutoSize = true;
+			linkLabel2.Location = new Point(213, 75);
+			linkLabel2.Name = "linkLabel2";
+			linkLabel2.Size = new Size(146, 15);
+			linkLabel2.TabIndex = 16;
+			linkLabel2.TabStop = true;
+			linkLabel2.Text = "More Info on Health Goals";
+			linkLabel2.LinkClicked += linkLabel2_LinkClicked;
 			// 
-			// button7
+			// linkLabel3
 			// 
-			button7.Location = new Point(518, 356);
-			button7.Margin = new Padding(4, 5, 4, 5);
-			button7.Name = "button7";
-			button7.Size = new Size(107, 38);
-			button7.TabIndex = 14;
-			button7.Text = "button7";
-			button7.UseVisualStyleBackColor = true;
+			linkLabel3.AutoSize = true;
+			linkLabel3.Location = new Point(-2, 75);
+			linkLabel3.Name = "linkLabel3";
+			linkLabel3.Size = new Size(198, 15);
+			linkLabel3.TabIndex = 17;
+			linkLabel3.TabStop = true;
+			linkLabel3.Text = "More information on Health Metrics";
+			linkLabel3.LinkClicked += linkLabel3_LinkClicked;
 			// 
-			// button8
+			// linkLabel4
 			// 
-			button8.Location = new Point(233, 175);
-			button8.Name = "button8";
-			button8.Size = new Size(112, 34);
-			button8.TabIndex = 15;
-			button8.Text = "button8";
-			button8.UseVisualStyleBackColor = true;
-			button8.Click += button8_Click;
+			linkLabel4.AutoSize = true;
+			linkLabel4.Location = new Point(384, 75);
+			linkLabel4.Name = "linkLabel4";
+			linkLabel4.Size = new Size(121, 15);
+			linkLabel4.TabIndex = 18;
+			linkLabel4.TabStop = true;
+			linkLabel4.Text = "Nutrition Information";
+			linkLabel4.LinkClicked += linkLabel4_LinkClicked;
+			// 
+			// linkLabel5
+			// 
+			linkLabel5.AutoSize = true;
+			linkLabel5.Location = new Point(542, 75);
+			linkLabel5.Name = "linkLabel5";
+			linkLabel5.Size = new Size(83, 15);
+			linkLabel5.TabIndex = 19;
+			linkLabel5.TabStop = true;
+			linkLabel5.Text = "Modify Details";
+			linkLabel5.LinkClicked += linkLabel5_LinkClicked;
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.Location = new Point(315, 13);
+			label5.Name = "label5";
+			label5.Size = new Size(38, 15);
+			label5.TabIndex = 20;
+			label5.Text = "label5";
+			// 
+			// linkLabel6
+			// 
+			linkLabel6.AutoSize = true;
+			linkLabel6.LinkBehavior = LinkBehavior.HoverUnderline;
+			linkLabel6.Location = new Point(213, 136);
+			linkLabel6.Margin = new Padding(2, 0, 2, 0);
+			linkLabel6.Name = "linkLabel6";
+			linkLabel6.Size = new Size(249, 15);
+			linkLabel6.TabIndex = 21;
+			linkLabel6.TabStop = true;
+			linkLabel6.Text = "Click here to get more information about SDG";
+			linkLabel6.LinkClicked += linkLabel6_LinkClicked;
 			// 
 			// DashBoard
 			// 
-			AutoScaleDimensions = new SizeF(10F, 25F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1143, 750);
-			Controls.Add(button8);
-			Controls.Add(button7);
-			Controls.Add(textBox1);
+			ClientSize = new Size(800, 450);
+			Controls.Add(linkLabel6);
+			Controls.Add(label5);
+			Controls.Add(linkLabel5);
+			Controls.Add(linkLabel4);
+			Controls.Add(linkLabel3);
+			Controls.Add(linkLabel2);
 			Controls.Add(button6);
 			Controls.Add(linkLabel1);
 			Controls.Add(button5);
-			Controls.Add(label5);
 			Controls.Add(button4);
-			Controls.Add(label3);
-			Controls.Add(label2);
-			Controls.Add(label1);
-			Controls.Add(button3);
-			Controls.Add(button2);
-			Controls.Add(button1);
-			Margin = new Padding(4, 5, 4, 5);
 			Name = "DashBoard";
 			Text = "Form3";
 			Load += DashBoard_Load;
@@ -215,20 +172,15 @@
 		}
 
 		#endregion
-
-		private Button button1;
-		private Button button2;
-		private Button button3;
-		private Label label1;
-		private Label label2;
-		private Label label3;
 		private Button button4;
-		private Label label5;
 		private Button button5;
 		private LinkLabel linkLabel1;
 		private Button button6;
-		private TextBox textBox1;
-		private Button button7;
-		private Button button8;
+		private LinkLabel linkLabel2;
+		private LinkLabel linkLabel3;
+		private LinkLabel linkLabel4;
+		private LinkLabel linkLabel5;
+		private Label label5;
+		private LinkLabel linkLabel6;
 	}
 }

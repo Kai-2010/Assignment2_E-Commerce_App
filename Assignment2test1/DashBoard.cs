@@ -116,7 +116,8 @@ namespace Assignment2test1
 
 		private void button6_Click(object sender, EventArgs e)
 		{
-			Application.Exit();
+			Hide();
+			new Login().Show();
 
 		}
 
@@ -125,6 +126,37 @@ namespace Assignment2test1
 			Hide();
 			new Modify(loggedInCustomer, listOfCustomers).Show();
 		}
+
+		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Hide();
+			new HealthGoalsForm().Show();
+		}
+
+		private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Hide();
+			new HealthMetrics().Show();
+		}
+
+		private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Hide(); ;
+			new NutritionInformation().Show();
+		}
+
+		private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			Hide();
+			new Modify(loggedInCustomer, listOfCustomers).Show();
+		}
+
+		private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string url = "https://sdgs.un.org/goals";
+			System.Diagnostics.Process.Start("cmd", $"/c start {url}");
+		}
 	}
 }
+
 
