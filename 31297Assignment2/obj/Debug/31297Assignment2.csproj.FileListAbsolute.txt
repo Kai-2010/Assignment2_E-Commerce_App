@@ -1,0 +1,7 @@
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\31297Assignment2.csproj.AssemblyReference.cache
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\_31297Assignment2.LoginForm.resources
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\_31297Assignment2.Properties.Resources.resources
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\31297Assignment2.csproj.GenerateResource.cache
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\31297Assignment2.csproj.CoreCompileInputs.cache
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\_31297Assignment2.Login.resources
+C:\Users\tcdin\source\repos\31297Assignment2\31297Assignment2\obj\Debug\_31297Assignment2.LoginPage.resources
