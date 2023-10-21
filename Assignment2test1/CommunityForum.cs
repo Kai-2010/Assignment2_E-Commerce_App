@@ -65,7 +65,7 @@ namespace Assignment2test1
 		private void button2_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			new DashBoard(loggedInCustomer,listOfCustomers).Show();
+			new DashBoard(loggedInCustomer).Show();
 		}
 
 		private void ReplyButton_Click(object sender, EventArgs e)

@@ -41,7 +41,7 @@ namespace Assignment2test1
 			else
 			{
 				this.Close();
-				new DashBoard(loggedInCustomer,listOfCustomers).Show();
+				new DashBoard(loggedInCustomer).Show();
 			}
 		}
 

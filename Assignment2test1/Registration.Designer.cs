@@ -64,7 +64,7 @@
 			firstName.Name = "firstName";
 			firstName.Size = new Size(141, 31);
 			firstName.TabIndex = 0;
-			firstName.Leave += textBox1_Leave;
+			//firstName.Leave += textBox1_Leave;
 			// 
 			// lastName
 			// 
@@ -73,7 +73,7 @@
 			lastName.Name = "lastName";
 			lastName.Size = new Size(141, 31);
 			lastName.TabIndex = 1;
-			lastName.Leave += textBox2_Leave;
+			//lastName.Leave += textBox2_Leave;
 			// 
 			// email
 			// 
@@ -82,7 +82,7 @@
 			email.Name = "email";
 			email.Size = new Size(141, 31);
 			email.TabIndex = 2;
-			email.Leave += textBox3_Leave;
+			//email.Leave += textBox3_Leave;
 			// 
 			// phoneNumber
 			// 
@@ -91,7 +91,7 @@
 			phoneNumber.Name = "phoneNumber";
 			phoneNumber.Size = new Size(141, 31);
 			phoneNumber.TabIndex = 3;
-			phoneNumber.Leave += textBox4_Leave;
+			//phoneNumber.Leave += textBox4_Leave;
 			// 
 			// address
 			// 
@@ -100,7 +100,7 @@
 			address.Name = "address";
 			address.Size = new Size(141, 31);
 			address.TabIndex = 4;
-			address.Leave += textBox5_Leave;
+			//address.Leave += textBox5_Leave;
 			// 
 			// radioButton1
 			// 
@@ -210,7 +210,7 @@
 			password.Size = new Size(141, 31);
 			password.TabIndex = 14;
 			password.UseSystemPasswordChar = true;
-			password.Leave += textBox6_Leave;
+			//password.Leave += textBox6_Leave;
 			// 
 			// label6
 			// 
@@ -230,7 +230,7 @@
 			repeatPassword.Size = new Size(141, 31);
 			repeatPassword.TabIndex = 16;
 			repeatPassword.UseSystemPasswordChar = true;
-			repeatPassword.Leave += textBox7_Leave;
+			//repeatPassword.Leave += textBox7_Leave;
 			// 
 			// label7
 			// 

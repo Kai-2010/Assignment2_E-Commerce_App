@@ -8,7 +8,16 @@ namespace Assignment2test1
 {
 	public class Customer
 	{
-		public string firstName, lastName, address, email, phoneNumber, password, sex;
+		public int CustomerId { get; set; }
+		public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string address { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
+        public string password { get; set; }
+        public string sex { get; set; }
+
+        //public string firstName, lastName, address, email, phoneNumber, password, sex;
 
 		public Customer(string inputEmail,string inputPassword,string inputFirstName, string inputLastName, string inputAddress, string inputPhoneNumber,string inputSex)
 		{

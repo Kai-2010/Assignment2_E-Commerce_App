@@ -79,7 +79,7 @@
 			label1.Name = "label1";
 			label1.Size = new Size(65, 15);
 			label1.TabIndex = 4;
-			label1.Text = "User Name";
+			label1.Text = "Email";
 			// 
 			// label2
 			// 
@@ -105,7 +105,7 @@
 			Controls.Add(textBox1);
 			Name = "Login";
 			Text = "Login";
-			Load += Login_Load;
+			//Load += Login_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}
