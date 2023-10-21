@@ -36,7 +36,7 @@ namespace Assignment2test1
 			}
 			else
 			{
-                MessageBox.Show("Incorrect username or password.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Incorrect email or password.", "Error", MessageBoxButtons.OK);
                 textBox1.Clear();
                 textBox2.Clear();
                 textBox1.Focus();
