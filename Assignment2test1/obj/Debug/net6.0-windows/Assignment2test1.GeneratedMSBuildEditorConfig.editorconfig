@@ -14,4 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Assignment2test1
-build_property.ProjectDir = C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\
+build_property.ProjectDir = C:\Users\tcdin\source\repos\Assignment2test1\Assignment2test1\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

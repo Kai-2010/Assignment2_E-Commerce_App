@@ -17,13 +17,13 @@ namespace Assignment2test1
 	public partial class DashBoard : Form
 	{
 		Customer loggedInCustomer;
-
-		public DashBoard(Customer loggedInCustomer)
+		List<Customer> listOfCustomers = new List<Customer>();
+		public DashBoard(Customer loggedInCustomer, List<Customer> listOfCustomers)
 		{
 			InitializeComponent();
 			this.loggedInCustomer = loggedInCustomer;
+			this.listOfCustomers = listOfCustomers;
 		}
-
 		public void DashBoard_Load(object sender, EventArgs e)
 		{
 			label5.Text = "Welcome " + loggedInCustomer.firstName;
@@ -32,7 +32,7 @@ namespace Assignment2test1
 		private void button4_Click(object sender, EventArgs e)
 		{
 			Hide();
-			new CommunityForum(loggedInCustomer).Show();
+			new CommunityForum(loggedInCustomer, listOfCustomers).Show();
 		}
 
 		private async void button5_Click(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace Assignment2test1
 		private void button8_Click(object sender, EventArgs e)
 		{
 			Hide();
-			new Modify(loggedInCustomer).Show();
+			new Modify(loggedInCustomer, listOfCustomers).Show();
 		}
 
 		private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -148,7 +148,7 @@ namespace Assignment2test1
 		private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			Hide();
-			new Modify(loggedInCustomer).Show();
+			new Modify(loggedInCustomer, listOfCustomers).Show();
 		}
 
 		private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

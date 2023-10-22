@@ -47,7 +47,7 @@
 			FN.ReadOnly = true;
 			FN.Size = new Size(141, 31);
 			FN.TabIndex = 0;
-			//FN.TextChanged += textBox1_TextChanged;
+			FN.TextChanged += textBox1_TextChanged;
 			// 
 			// LN
 			// 
@@ -57,7 +57,7 @@
 			LN.ReadOnly = true;
 			LN.Size = new Size(141, 31);
 			LN.TabIndex = 1;
-			//LN.TextChanged += textBox2_TextChanged;
+			LN.TextChanged += textBox2_TextChanged;
 			// 
 			// Email
 			// 
@@ -66,7 +66,7 @@
 			Email.Name = "Email";
 			Email.Size = new Size(141, 31);
 			Email.TabIndex = 2;
-			//Email.TextChanged += textBox3_TextChanged;
+			Email.TextChanged += textBox3_TextChanged;
 			// 
 			// phone
 			// 
@@ -75,7 +75,7 @@
 			phone.Name = "phone";
 			phone.Size = new Size(141, 31);
 			phone.TabIndex = 3;
-			//phone.TextChanged += textBox4_TextChanged;
+			phone.TextChanged += textBox4_TextChanged;
 			// 
 			// Add
 			// 
@@ -84,7 +84,7 @@
 			Add.Name = "Add";
 			Add.Size = new Size(141, 31);
 			Add.TabIndex = 4;
-			//Add.TextChanged += textBox5_TextChanged;
+			Add.TextChanged += textBox5_TextChanged;
 			// 
 			// Password
 			// 
@@ -93,7 +93,7 @@
 			Password.Name = "Password";
 			Password.Size = new Size(141, 31);
 			Password.TabIndex = 5;
-			//Password.TextChanged += textBox6_TextChanged;
+			Password.TextChanged += textBox6_TextChanged;
 			// 
 			// RepeatPassword
 			// 
@@ -102,7 +102,7 @@
 			RepeatPassword.Name = "RepeatPassword";
 			RepeatPassword.Size = new Size(141, 31);
 			RepeatPassword.TabIndex = 6;
-			//RepeatPassword.TextChanged += textBox7_TextChanged;
+			RepeatPassword.TextChanged += textBox7_TextChanged;
 			// 
 			// button1
 			// 
@@ -141,7 +141,7 @@
 			Margin = new Padding(4, 5, 4, 5);
 			Name = "Modify";
 			Text = "Modify";
-			//Load += Modify_Load;
+			Load += Modify_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}

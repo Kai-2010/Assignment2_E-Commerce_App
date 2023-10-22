@@ -6,11 +6,22 @@ namespace Assignment2test1
 {
 	public partial class Login : Form
 	{
+		List<Customer> listOfCustomers = new List<Customer>();
+		Customer newCustomer = new Customer();
 		public Login()
 		{
 			InitializeComponent();
 		}
 
+		public void Login_Load(object sender, EventArgs e)
+		{
+			string[] customerFile = utility.readLoginFile();
+			for (int ii = 0; ii < customerFile.Length; ii++)
+			{
+				string[] personalDetails = customerFile[ii].Split('|');
+				listOfCustomers.Add(new Customer(personalDetails[0], personalDetails[1], personalDetails[2], personalDetails[3], personalDetails[4], personalDetails[5], personalDetails[6]));
+			}
+		}
 
 		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
@@ -22,31 +33,38 @@ namespace Assignment2test1
 
 		}
 
-        private void button1_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
-			Customer customer;
-			using (var context = new HealthContext())
+			bool loginSuccessful = false;
+			Customer newCustomer = new Customer();
+			for (int i = 0; i < listOfCustomers.Count; i++)
 			{
-				customer = context.Customers.FirstOrDefault(c=>c.email == textBox1.Text && c.password == textBox2.Text);
+				if (textBox1.Text == listOfCustomers[i].email && textBox2.Text == listOfCustomers[i].password)
+				{
+					loginSuccessful = true;
+					newCustomer = listOfCustomers[i];
+					break;
+				}
 			}
-			if (customer != null)
+
+			if (loginSuccessful)
 			{
 				Hide();
-				new DashBoard(customer).Show();
+				new DashBoard(newCustomer, listOfCustomers).Show();
 			}
 			else
 			{
-                MessageBox.Show("Incorrect email or password.", "Error", MessageBoxButtons.OK);
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox1.Focus();
-            }
+				MessageBox.Show("Incorrect username or password.", "Error", MessageBoxButtons.OK);
+				textBox1.Clear();
+				textBox2.Clear();
+				textBox1.Focus();
+			}
 		}
 
-        private void button2_Click(object sender, EventArgs e)
+		private void button2_Click(object sender, EventArgs e)
 		{
 			Hide();
-			new Registration().Show();
+			new Registration(listOfCustomers).Show();
 		}
 	}
 }

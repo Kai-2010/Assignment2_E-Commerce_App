@@ -2,15 +2,9 @@
 {
 	partial class ResponseForm
 	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+		// Required designer variable.
 		private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && (components != null))
@@ -29,6 +23,7 @@
 		private void InitializeComponent()
 		{
 			ResponseText = new TextBox();
+			SubmitButton = new Button();
 			SuspendLayout();
 			// 
 			// ResponseText
@@ -37,12 +32,24 @@
 			ResponseText.Name = "ResponseText";
 			ResponseText.Size = new Size(100, 23);
 			ResponseText.TabIndex = 0;
+			//ResponseText.TextChanged += ResponseText_TextChanged;
+			// 
+			// SubmitButton
+			// 
+			SubmitButton.Location = new Point(339, 150);
+			SubmitButton.Name = "SubmitButton";
+			SubmitButton.Size = new Size(75, 23);
+			SubmitButton.TabIndex = 1;
+			SubmitButton.Text = "Submit";
+			SubmitButton.UseVisualStyleBackColor = true;
+			SubmitButton.Click += SubmitButton_Click;
 			// 
 			// ResponseForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
+			Controls.Add(SubmitButton);
 			Controls.Add(ResponseText);
 			Name = "ResponseForm";
 			Text = "ResponseForm";
@@ -52,6 +59,6 @@
 
 		#endregion
 
-		private TextBox ResponseText;
+		private Button SubmitButton;
 	}
 }

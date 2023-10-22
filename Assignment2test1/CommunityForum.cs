@@ -1,77 +1,119 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Assignment2test1
 {
 	public partial class CommunityForum : Form
 	{
 		Customer loggedInCustomer;
-		PostForm postObject;
 		List<Customer> listOfCustomers = new List<Customer>();
-		string userInput;
-		public CommunityForum(Customer loggedInCustomer)
+		List<Post> postsAndReplies = new List<Post>();
+
+		public CommunityForum(Customer loggedInCustomer, List<Customer> listOfCustomers)
 		{
 			InitializeComponent();
 			this.loggedInCustomer = loggedInCustomer;
+			this.listOfCustomers = listOfCustomers;
 		}
+
 		public void Form5_Load(object sender, EventArgs e)
 		{
-			Post postObject = new Post();
-			string[] post = postObject.readPostFile();
-			string[] postDetails = post[0].Split('|');
-
-			for (int ii = 0; ii < postDetails.Length; ii++)
+			string[] posts = File.ReadAllLines("post - Copy - Copy.txt").ToArray();
+			string replyBoxText = "";
+			for (int i = 0; i < posts.Length; i++)
 			{
-				string element = postDetails[ii];
-				TextBox textBox = new TextBox();
-				textBox.Text = element;
+				replyBoxText = "";
+				postsAndReplies.Add(new Post(posts[i]));
 
-				flowLayoutPanel1.Controls.Add(textBox); // Use flowLayoutPanel1 here
+				// Add a TextBox for the post
+				TextBox postBox = new TextBox()
+				{
+					Multiline = true,   // Allow multiple lines of text
+					ScrollBars = ScrollBars.Vertical,   // Display vertical scrollbars if needed
+					Width = 200,
+					Height = 60// Set the desired height
+				};
 
+				postBox.Text = postsAndReplies.Count > 0 ? postsAndReplies[i].post : ""; // Display the first reply as post text
+
+				flowLayoutPanel1.Controls.Add(postBox);
+
+				//Add a TextBox for the replies
+				TextBox replyBox = new TextBox
+				{
+					Multiline = true,   // Allow multiple lines of text
+					ScrollBars = ScrollBars.Vertical,   // Display vertical scrollbars if needed
+					Width = 500,
+					Height = 60// Set the desired height
+				};
+
+				for (int ii = 0; ii < postsAndReplies[i].replies.Count; ii++)
+				{
+					replyBoxText = replyBoxText + (ii + 1).ToString() + ". " + postsAndReplies[i].replies[ii] + Environment.NewLine;
+				}
+				if (replyBoxText.Count() > 0)
+				{
+					replyBox.Text = replyBoxText;
+					flowLayoutPanel1.Controls.Add(replyBox);
+				}
+
+				// Add a "Reply" button for each post
 				Button replyButton = new Button();
 				replyButton.Text = "Reply";
-				replyButton.Tag = ii;
+				replyButton.Tag = i;
 				replyButton.Click += ReplyButton_Click;
-
-				flowLayoutPanel1.Controls.Add(replyButton); // Use flowLayoutPanel1 here
+				flowLayoutPanel1.Controls.Add(replyButton);
 			}
-		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			Hide();
-			new PostForm(loggedInCustomer).Show();
-		}
-
-		private void textBox1_TextChanged(object sender, EventArgs e)
-		{
-			//textBox1.Text = userInput;
-			//System.IO.File.AppendAllText(string.Format("post.txt"), (string.Format("," + textBox1)));
-		}
-
-		private void panel1_Paint(object sender, PaintEventArgs e)
-		{
-
-		}
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-			this.Close();
-			new DashBoard(loggedInCustomer).Show();
 		}
 
 		private void ReplyButton_Click(object sender, EventArgs e)
 		{
 			Button clickedButton = (Button)sender;
-			int postIndex = (int)clickedButton.Tag; // Retrieve the index
+			int postIndex = (int)clickedButton.Tag;
+			List<string> contentToSave = new List<string>();
+			string contentToSaveString = "";
+			// Open a dialog for composing a reply
+			using (ResponseForm responseForm = new ResponseForm())
+			{
+				if (responseForm.ShowDialog() == DialogResult.OK)
+				{
+					// Get the reply text from the response Form
+					string replyText = responseForm.replyString;
+					// Save the reply text to the appropriate post in the data structure
+					postsAndReplies[postIndex].replies.Add(replyText);
+
+					for (int ii = 0; ii < postsAndReplies.Count; ii++)
+					{
+						contentToSaveString = "";
+						contentToSaveString = contentToSaveString + postsAndReplies[ii].post;
+						for (int iii = 0; iii < postsAndReplies[ii].replies.Count; iii++)
+						{
+							contentToSaveString = contentToSaveString + "|" + postsAndReplies[ii].replies[iii];
+						}
+						contentToSave.Add(contentToSaveString);
+					}
+					File.WriteAllLines("post - Copy - Copy.txt", contentToSave);
+					Hide();
+					new DashBoard(loggedInCustomer, listOfCustomers).Show();
+				}
+			}
+		}
+
+		private void button1_Click_1(object sender, EventArgs e)
+		{
+			Hide();
+			this.Close();
+			new PostForm(loggedInCustomer).Show();
+		}
+
+		private void button2_Click_1(object sender, EventArgs e)
+		{
+			Hide();
+			this.Close();
+			new DashBoard(loggedInCustomer, listOfCustomers).Show();
 		}
 	}
 }

@@ -78,28 +78,6 @@ namespace Assignment2test1
 			}
 		}
 
-		public static void updateCustomer(Customer customer)
-		{
-            using (var context = new HealthContext())
-			{
-				var targetCustomer = context.Customers.Find(customer.CustomerId);
-				targetCustomer.email = customer.email;
-				targetCustomer.phoneNumber = customer.phoneNumber;
-				targetCustomer.address = customer.address;
-				targetCustomer.password = customer.password;
-				context.SaveChanges();
-			}
-		}
-
-        public static void addCustomer(Customer customer)
-        {
-            using (var context = new HealthContext())
-			{
-				context.Customers.Add(customer);
-				context.SaveChanges();
-            }
-        }
-
-    }
+	}
 }
 
