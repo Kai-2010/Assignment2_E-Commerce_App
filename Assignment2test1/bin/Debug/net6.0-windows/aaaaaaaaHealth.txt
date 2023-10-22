@@ -1,0 +1,6 @@
+aaaa,aaaa|aaa@aaa.com
+Weight|2023/10/22 80
+BloodPressure|2023/10/22 120
+HeartRate
+Calorie|2023/10/22 300
+Exercise

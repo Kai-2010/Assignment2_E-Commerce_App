@@ -9,25 +9,18 @@ namespace Assignment2test1
 	public class Post
 	{
 		public string post;
-		public List<string> replies = new List<string>();
 		PostForm postObject;
 		public Post(string inputPost)
 		{
-			string[] temp = inputPost.Split('|');
-			post = temp[0];
-			for (int ii = 1; ii < temp.Length; ii++)
-			{
-				replies.Add(temp[ii]);
-			}
+			post = inputPost;
 		}
-
 		public Post()
 		{
 			post = "";
 		}
 		public string[] readPostFile()
 		{
-			string[] postFile = System.IO.File.ReadAllLines("post - Copy.txt");
+			string[] postFile = System.IO.File.ReadAllLines("post.txt");
 			return postFile;
 		}
 	}

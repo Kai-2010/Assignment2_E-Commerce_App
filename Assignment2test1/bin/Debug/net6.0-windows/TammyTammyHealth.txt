@@ -1,0 +1,6 @@
+Tammy,Tammy|tammy@tammy.com
+Weight|2023/10/22 78
+BloodPressure|2023/10/22 120
+HeartRate|2023/10/22 88
+Calorie
+Exercise

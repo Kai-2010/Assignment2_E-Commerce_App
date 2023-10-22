@@ -30,8 +30,8 @@ namespace Assignment2test1
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			System.IO.File.AppendAllText(string.Format("post - Copy - Copy.txt"), (string.Format("\n"+post)));
-			DialogResult dialogResult = MessageBox.Show("Post something else", "Post Content", MessageBoxButtons.YesNo);
+			System.IO.File.AppendAllText(string.Format("post.txt"), (string.Format("|" + post)));
+			DialogResult dialogResult = MessageBox.Show("Post something else", "Check another feature", MessageBoxButtons.YesNo);
 			if (dialogResult == DialogResult.Yes)
 			{
 				textBox1.Clear();
@@ -53,7 +53,7 @@ namespace Assignment2test1
 		private void button2_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			new CommunityForum(loggedInCustomer, listOfCustomers).Show();
+			new CommunityForum(loggedInCustomer).Show();
 		}
 
 		private void PostForm_Load(object sender, EventArgs e)
