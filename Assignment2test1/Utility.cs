@@ -73,7 +73,7 @@ namespace Assignment2test1
 			{
 				foreach (Customer customer in listOfCustomers)
 				{
-					writer.WriteLine($"{customer.email}|{customer.password}|{customer.firstName}|{customer.lastName}|{customer.phoneNumber}|{customer.address}|{customer.sex}");
+					writer.WriteLine($"{customer.email}|{customer.password}|{customer.firstName}|{customer.lastName}|{customer.phoneNumber}|{customer.address}|{customer.gender}|{customer.healthCondition1}|{customer.healthCondition2}|{customer.healthCondition3}|{customer.healthCondition4}");
 				}
 			}
 		}

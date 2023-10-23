@@ -2,15 +2,9 @@
 {
 	partial class ResponseForm
 	{
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
+		// Required designer variable.
 		private System.ComponentModel.IContainer components = null;
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && (components != null))
@@ -29,20 +23,55 @@
 		private void InitializeComponent()
 		{
 			ResponseText = new TextBox();
+			SubmitButton = new Button();
+			label1 = new Label();
+			label2 = new Label();
 			SuspendLayout();
 			// 
 			// ResponseText
 			// 
-			ResponseText.Location = new Point(286, 57);
+			ResponseText.Location = new Point(193, 69);
+			ResponseText.Multiline = true;
 			ResponseText.Name = "ResponseText";
-			ResponseText.Size = new Size(100, 23);
+			ResponseText.Size = new Size(338, 76);
 			ResponseText.TabIndex = 0;
+			// 
+			// SubmitButton
+			// 
+			SubmitButton.Location = new Point(434, 177);
+			SubmitButton.Name = "SubmitButton";
+			SubmitButton.Size = new Size(75, 23);
+			SubmitButton.TabIndex = 1;
+			SubmitButton.Text = "Submit";
+			SubmitButton.UseVisualStyleBackColor = true;
+			SubmitButton.Click += SubmitButton_Click;
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Location = new Point(319, 51);
+			label1.Name = "label1";
+			label1.Size = new Size(93, 15);
+			label1.TabIndex = 2;
+			label1.Text = "Type a Response";
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Location = new Point(324, 8);
+			label2.Name = "label2";
+			label2.Size = new Size(88, 15);
+			label2.TabIndex = 3;
+			label2.Text = "Response Form";
 			// 
 			// ResponseForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(800, 450);
+			Controls.Add(label2);
+			Controls.Add(label1);
+			Controls.Add(SubmitButton);
 			Controls.Add(ResponseText);
 			Name = "ResponseForm";
 			Text = "ResponseForm";
@@ -52,6 +81,8 @@
 
 		#endregion
 
-		private TextBox ResponseText;
+		private Button SubmitButton;
+		private Label label1;
+		private Label label2;
 	}
 }

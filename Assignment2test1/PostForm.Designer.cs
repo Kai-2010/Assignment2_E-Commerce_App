@@ -28,33 +28,33 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			textBox1 = new TextBox();
-			button1 = new Button();
+			postBox = new TextBox();
+			Post = new Button();
 			label1 = new Label();
-			button2 = new Button();
+			Cancel = new Button();
 			SuspendLayout();
 			// 
-			// textBox1
+			// postBox
 			// 
-			textBox1.Location = new Point(101, 162);
-			textBox1.Margin = new Padding(4, 5, 4, 5);
-			textBox1.Multiline = true;
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(627, 147);
-			textBox1.TabIndex = 0;
-			textBox1.Text = "Enter Your Post";
-			textBox1.TextChanged += textBox1_TextChanged;
+			postBox.Location = new Point(101, 162);
+			postBox.Margin = new Padding(4, 5, 4, 5);
+			postBox.Multiline = true;
+			postBox.Name = "postBox";
+			postBox.Size = new Size(627, 147);
+			postBox.TabIndex = 0;
+			postBox.Text = "Enter Your Post";
+			postBox.TextChanged += post_TextChanged;
 			// 
-			// button1
+			// Post
 			// 
-			button1.Location = new Point(623, 350);
-			button1.Margin = new Padding(4, 5, 4, 5);
-			button1.Name = "button1";
-			button1.Size = new Size(107, 38);
-			button1.TabIndex = 1;
-			button1.Text = "Post";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += button1_Click;
+			Post.Location = new Point(623, 350);
+			Post.Margin = new Padding(4, 5, 4, 5);
+			Post.Name = "Post";
+			Post.Size = new Size(107, 38);
+			Post.TabIndex = 1;
+			Post.Text = "Post";
+			Post.UseVisualStyleBackColor = true;
+			Post.Click += post_Click;
 			// 
 			// label1
 			// 
@@ -66,29 +66,29 @@
 			label1.TabIndex = 2;
 			label1.Text = "Create a post here";
 			// 
-			// button2
+			// Cancel
 			// 
-			button2.Location = new Point(109, 363);
-			button2.Margin = new Padding(4, 5, 4, 5);
-			button2.Name = "button2";
-			button2.Size = new Size(107, 38);
-			button2.TabIndex = 3;
-			button2.Text = "Cancel";
-			button2.UseVisualStyleBackColor = true;
-			button2.Click += button2_Click;
+			Cancel.Location = new Point(109, 363);
+			Cancel.Margin = new Padding(4, 5, 4, 5);
+			Cancel.Name = "Cancel";
+			Cancel.Size = new Size(107, 38);
+			Cancel.TabIndex = 3;
+			Cancel.Text = "Cancel";
+			Cancel.UseVisualStyleBackColor = true;
+			Cancel.Click += Cancel_Click;
 			// 
 			// PostForm
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1143, 750);
-			Controls.Add(button2);
+			Controls.Add(Cancel);
 			Controls.Add(label1);
-			Controls.Add(button1);
-			Controls.Add(textBox1);
+			Controls.Add(Post);
+			Controls.Add(postBox);
 			Margin = new Padding(4, 5, 4, 5);
 			Name = "PostForm";
-			Text = "Form6";
+			Text = "Post";
 			Load += PostForm_Load;
 			ResumeLayout(false);
 			PerformLayout();
@@ -96,9 +96,9 @@
 
 		#endregion
 
-		private TextBox textBox1;
-		private Button button1;
+		private TextBox postBox;
+		private Button Post;
 		private Label label1;
-		private Button button2;
+		private Button Cancel;
 	}
 }

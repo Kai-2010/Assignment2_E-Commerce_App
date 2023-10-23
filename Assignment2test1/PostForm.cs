@@ -14,29 +14,45 @@ namespace Assignment2test1
 
 	public partial class PostForm : Form
 	{
-		string post;
 		Customer loggedInCustomer;
 		List<Customer> listOfCustomers = new List<Customer>();
-		public PostForm(Customer loggedInCustomer)
+		List<Post> postsAndReplies = new List<Post>();
+		Post newPost = new Post();
+		public PostForm(Customer loggedInCustomer, List<Post> postsAndReplies)
 		{
 			InitializeComponent();
 			this.loggedInCustomer = loggedInCustomer;
+			this.postsAndReplies= postsAndReplies;
 		}
 
-		private void textBox1_TextChanged(object sender, EventArgs e)
+		private void post_TextChanged(object sender, EventArgs e)
 		{
-			post = textBox1.Text;
+			newPost.post = postBox.Text;
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void post_Click(object sender, EventArgs e)
 		{
-			System.IO.File.AppendAllText(string.Format("post.txt"), (string.Format("|" + post)));
-			DialogResult dialogResult = MessageBox.Show("Post something else", "Check another feature", MessageBoxButtons.YesNo);
+			string contentToSaveString = "";
+			List<string> contentToSave = new List<string>();
+			//System.IO.File.AppendAllText(string.Format("post - Copy - Copy.txt"), (string.Format("\n"+post)));
+			postsAndReplies.Add(newPost);
+			for (int ii = 0; ii < postsAndReplies.Count; ii++)
+			{
+				contentToSaveString = "";
+				contentToSaveString = contentToSaveString + postsAndReplies[ii].post;
+				for (int iii = 0; iii < postsAndReplies[ii].replies.Count; iii++)
+				{
+					contentToSaveString = contentToSaveString + "|" + postsAndReplies[ii].replies[iii];
+				}
+				contentToSave.Add(contentToSaveString);	
+			}
+			File.WriteAllLines("post - Copy - Copy.txt",contentToSave);
+			DialogResult dialogResult = MessageBox.Show("Post something else", "Post Content", MessageBoxButtons.YesNo);
 			if (dialogResult == DialogResult.Yes)
 			{
-				textBox1.Clear();
-				textBox1.Focus();
-				post = textBox1.Text;
+				postBox.Clear();
+				postBox.Focus();
+				newPost.post = postBox.Text;
 			}
 			else
 			{
@@ -45,15 +61,12 @@ namespace Assignment2test1
 			}
 		}
 
-		private void Form6_Load(object sender, EventArgs e)
-		{
+		
 
-		}
-
-		private void button2_Click(object sender, EventArgs e)
+		private void Cancel_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			new CommunityForum(loggedInCustomer).Show();
+			new CommunityForum(loggedInCustomer, listOfCustomers).Show();
 		}
 
 		private void PostForm_Load(object sender, EventArgs e)

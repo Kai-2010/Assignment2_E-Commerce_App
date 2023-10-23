@@ -25,7 +25,12 @@ namespace Assignment2test1
 	{
 		string gender;
 		List<Customer> listOfCustomers = new List<Customer>();
+		List<string> selectedHealthConditions = new List<string>();
 		private bool validateInput = true;
+		string healthCondition1;
+		string healthCondition2;
+		string healthCondition3;
+		string healthCondition4;
 
 		public Registration(List<Customer> listOfCustomers)
 		{
@@ -159,7 +164,7 @@ namespace Assignment2test1
 				}
 				else
 				{
-					Customer newCustomer = new Customer(email.Text, password.Text, firstName.Text, lastName.Text, address.Text, phoneNumber.Text, gender);
+					Customer newCustomer = new Customer(email.Text, password.Text, firstName.Text, lastName.Text, address.Text, phoneNumber.Text, gender,healthCondition1, healthCondition2, healthCondition3, healthCondition4);
 					listOfCustomers.Add(newCustomer);
 					utility.saveCustomerDetails(listOfCustomers);
 					MessageBox.Show("New Customer created successfully", $"Your Login ID is : {email.Text}", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -192,9 +197,52 @@ namespace Assignment2test1
 			new Login().Show();
 		}
 
-		private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+		private void checkBox1_CheckedChanged(object sender, EventArgs e)
 		{
+			if (checkBox1.Checked)
+			{
+				healthCondition1 = "H";
+			}
+			else
+			{
+				healthCondition1 = "";
+			}
+		}
 
+		private void checkBox2_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox2.Checked)
+			{
+				healthCondition2 = "D";
+			}
+			else
+			{
+				healthCondition2 = "";
+			}
+		}
+
+		private void checkBox3_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox3.Checked)
+			{
+				healthCondition3 = "C";
+			}
+			else
+			{
+				healthCondition3 = "";
+			}
+		}
+
+		private void checkBox4_CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox4.Checked)
+			{
+				healthCondition4 = "O";
+			}
+			else
+			{
+				healthCondition4 = "";
+			}
 		}
 	}
 }

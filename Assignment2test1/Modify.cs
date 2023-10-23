@@ -35,48 +35,48 @@ namespace Assignment2test1
 			Add.Text = loggedInCustomer.address;
 			Password.Text = loggedInCustomer.password;
 			RepeatPassword.Text = loggedInCustomer.password;
-			gender.Text = loggedInCustomer.sex;
+			gender.Text = loggedInCustomer.gender;
 		}
-		private void textBox1_TextChanged(object sender, EventArgs e)
+		private void FN_TextChanged(object sender, EventArgs e)
 		{
 			loggedInCustomer.firstName = FN.Text;
 		}
 
-		private void textBox2_TextChanged(object sender, EventArgs e)
+		private void LN_TextChanged(object sender, EventArgs e)
 		{
 			loggedInCustomer.lastName = LN.Text;
 
 		}
 
-		private void textBox3_TextChanged(object sender, EventArgs e)
+		private void email_TextChanged(object sender, EventArgs e)
 		{
 			loggedInCustomer.email = Email.Text;
 
 		}
 
-		private void textBox4_TextChanged(object sender, EventArgs e)
+		private void phone_TextChanged(object sender, EventArgs e)
 		{
 			loggedInCustomer.phoneNumber = phone.Text;
 
 		}
 
-		private void textBox5_TextChanged(object sender, EventArgs e)
+		private void Add_TextChanged(object sender, EventArgs e)
 		{
 			loggedInCustomer.address = Add.Text;
 		}
 
-		private void textBox6_TextChanged(object sender, EventArgs e)
+		private void password_TextChanged(object sender, EventArgs e)
 		{
 			loggedInCustomer.password = Password.Text;
 
 		}
 
-		private void textBox7_TextChanged(object sender, EventArgs e)
+		private void repeatPassword_TextChanged(object sender, EventArgs e)
 		{
 			repeatPassword = RepeatPassword.Text;
 
 		}
-		private void textBox4_Leave(object sender, EventArgs e)
+		private void phone_Leave(object sender, EventArgs e)
 		{
 			if (utility.phoneValidation(phone.Text) == false || utility.phoneValidation1(phone.Text) == false)
 			{
@@ -95,7 +95,7 @@ namespace Assignment2test1
 				loggedInCustomer.phoneNumber = phone.Text;
 			}
 		}
-		private void textBox5_Leave(object sender, EventArgs e)
+		private void Add_Leave(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(Add.Text) == true)
 			{
@@ -108,7 +108,7 @@ namespace Assignment2test1
 				loggedInCustomer.address = Add.Text;
 			}
 		}
-		private void textBox6_Leave(object sender, EventArgs e)
+		private void password_Leave(object sender, EventArgs e)
 		{
 			if (string.IsNullOrEmpty(Password.Text) == true)
 			{
@@ -127,7 +127,7 @@ namespace Assignment2test1
 				loggedInCustomer.password = Password.Text;
 			}
 		}
-		private void textBox7_Leave(object sender, EventArgs e)
+		private void repeatPassword_Leave(object sender, EventArgs e)
 		{
 			if (Password.Text != RepeatPassword.Text)
 			{
@@ -141,7 +141,7 @@ namespace Assignment2test1
 				repeatPassword = RepeatPassword.Text;
 			}
 		}
-		private void button1_Click(object sender, EventArgs e)
+		private void submit_Click(object sender, EventArgs e)
 		{
 			if (Password.Text != RepeatPassword.Text)
 			{
@@ -161,10 +161,16 @@ namespace Assignment2test1
 					customerToUpdate.phoneNumber = loggedInCustomer.phoneNumber;
 					customerToUpdate.password = loggedInCustomer.password;
 					customerToUpdate.email = loggedInCustomer.email;
-					customerToUpdate.sex = loggedInCustomer.sex;
+					customerToUpdate.gender = loggedInCustomer.gender;
 					utility.saveCustomerDetails(this.listOfCustomers);
 				}
 			}
+		}
+
+		private void Cancel_Click(object sender, EventArgs e)
+		{
+			this.Close();
+			new DashBoard(loggedInCustomer,listOfCustomers).Show();
 		}
 	}
 }

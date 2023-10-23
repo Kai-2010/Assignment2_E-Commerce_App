@@ -19,7 +19,7 @@ namespace Assignment2test1
 			for (int ii = 0; ii < customerFile.Length; ii++)
 			{
 				string[] personalDetails = customerFile[ii].Split('|');
-				listOfCustomers.Add(new Customer(personalDetails[0], personalDetails[1], personalDetails[2], personalDetails[3], personalDetails[4], personalDetails[5], personalDetails[6]));
+				listOfCustomers.Add(new Customer(personalDetails[0], personalDetails[1], personalDetails[2], personalDetails[3], personalDetails[4], personalDetails[5], personalDetails[6], personalDetails[7], personalDetails[8], personalDetails[9], personalDetails[10]));
 			}
 		}
 

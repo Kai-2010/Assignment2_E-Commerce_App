@@ -8,17 +8,22 @@ namespace Assignment2test1
 {
 	public class Customer
 	{
-		public string firstName, lastName, address, email, phoneNumber, password, sex;
+		public string firstName, lastName, address, email, phoneNumber, password, gender,healthCondition1, healthCondition2, healthCondition3, healthCondition4;
 
-		public Customer(string inputEmail,string inputPassword,string inputFirstName, string inputLastName, string inputAddress, string inputPhoneNumber,string inputSex)
+		public Customer(string inputEmail,string inputPassword,string inputFirstName, string inputLastName, string inputAddress, string inputPhoneNumber,string inputGender,string inputHealthCondition1,
+			string inputHealthCondition2, string inputHealthCondition3, string inputHealthCondition4)
 		{
 			firstName = inputFirstName;
 			lastName = inputLastName;
 			address = inputAddress;
 			phoneNumber = inputPhoneNumber;
 			email = inputEmail;
-			sex = inputSex;
+			gender = inputGender;
 			password = inputPassword;
+			healthCondition1 = inputHealthCondition1;
+			healthCondition2 = inputHealthCondition2;
+			healthCondition3 = inputHealthCondition3;
+			healthCondition4 = inputHealthCondition4;
 		}
 		public Customer()
 		{
