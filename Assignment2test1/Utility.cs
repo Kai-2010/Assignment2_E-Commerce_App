@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -84,34 +85,6 @@ namespace Assignment2test1
                 context.SaveChanges();
             }
         }
-
-		public static void ensureDBCreated()
-		{
-			using (var context = new HealthContext())
-			{
-				//If no database detected
-                if ((context.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists() == false)
-				{
-					//Create database
-					context.Database.EnsureCreated();
-
-                    //Add customers
-					context.Customers.Add(new Customer("peter.pan@hotmail.com", "Password123", "Peter", "Pan", "12 Main Street", "0490564321", "M", true, true, true, true));
-                    context.Customers.Add(new Customer("tammy@tammy.com", "123456", "Tammy", "Tammy", "12 A Street", "0456789010", "F", false, false, false, false));
-                    context.Customers.Add(new Customer("yy@yy.com", "1234567aA*", "uyug", "ygug", "12 wat", "0424936302", "P", false, true, false, false));
-                    context.Customers.Add(new Customer("test.test@gmail.com", "1234567Aa@", "test", "test", "12 Tea Street", "0490765432", "F", false, false, false, false));
-                    context.Customers.Add(new Customer("bb@bb.com", "1234567aA#", "ghjgb", "ghhk", "12 wat", "0424936302", "M", false, false, false, false));
-                    context.Customers.Add(new Customer("rr@ff.com", "1234567sS@", "gg", "gg", "111", "0435465734", "M", false, false, false, false));
-                    context.Customers.Add(new Customer("t@t.com", "1234567Aa@", "tttt", "ttttt", "12 Main Street", "0490876543", "F", true, false, false, false));
-                    context.Customers.Add(new Customer("lat.tal@tal.com", "1234567aA@", "lat", "tal", "12 runner", "0448349524", "M", false, false, false, true));
-                    context.Customers.Add(new Customer("aaa@aaa.com", "1234567Aa@", "aaaa", "aaaa", "12 Wat", "0490373534", "F", false, false, false, false));
-
-					//Save database changes
-					context.SaveChanges();
-                }
-
-            }
-		}
 
     }
 }
