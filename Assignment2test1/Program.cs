@@ -1,3 +1,5 @@
+using Microsoft.Identity.Client.Utils.Windows;
+
 namespace Assignment2test1
 {
 	internal static class Program
@@ -10,6 +12,7 @@ namespace Assignment2test1
 		{
 			// To customize application configuration such as set high DPI settings or default font,
 			// see https://aka.ms/applicationconfiguration.
+			utility.ensureDBCreated();
 			ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

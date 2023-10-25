@@ -14,10 +14,5 @@ namespace Assignment2test1
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\ProjectModels;Initial Catalog=HealthDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
-
-        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Customer>().HasNoKey();
-        }*/
     }
 }
