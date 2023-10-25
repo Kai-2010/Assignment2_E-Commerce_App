@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Reflection.PortableExecutable;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Assignment2test1
 {
@@ -28,9 +29,22 @@ namespace Assignment2test1
         private void submit_Click(object sender, EventArgs e)
         {
             string errorMessage = verifyAll();
+            Customer customer;
+
+            using (var context = new HealthContext())
+            {
+                customer = context.Customers.FirstOrDefault(c => c.email == Email.Text);
+            }
+
             if (errorMessage != "")
             {
                 MessageBox.Show(errorMessage);
+            }
+            else if (customer != null && Email.Text != loggedInCustomer.email)
+            {
+                MessageBox.Show("Email Id is not available", "Please enter another email Id", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Email.Text = loggedInCustomer.email;
+                Email.Focus();
             }
             else
             {

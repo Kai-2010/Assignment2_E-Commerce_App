@@ -84,7 +84,7 @@
 			label1.Name = "label1";
 			label1.Size = new Size(99, 25);
 			label1.TabIndex = 4;
-			label1.Text = "User Name";
+			label1.Text = "Email";
 			// 
 			// Password
 			// 

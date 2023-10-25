@@ -127,21 +127,18 @@ namespace Assignment2test1
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Hide();
             new HealthGoalsForm(loggedInCustomer).ShowDialog();
             Show();
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Hide();
             new HealthMetrics(loggedInCustomer).ShowDialog();
             Show();
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Hide(); ;
             new NutritionInformation(loggedInCustomer).ShowDialog();
             Show();
         }
