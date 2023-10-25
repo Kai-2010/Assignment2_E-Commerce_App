@@ -8,22 +8,34 @@ namespace Assignment2test1
 {
 	public class Customer
 	{
-		public string firstName, lastName, address, email, phoneNumber, password, gender,healthCondition1, healthCondition2, healthCondition3, healthCondition4;
+        public int CustomerId { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string address { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
+        public string password { get; set; }
+        public string sex { get; set; }
+		public bool heartAttack { get; set; }
+        public bool diabetes { get; set; }
+        public bool chronicDisease { get; set; }
+        public bool other { get; set; }
 
-		public Customer(string inputEmail,string inputPassword,string inputFirstName, string inputLastName, string inputAddress, string inputPhoneNumber,string inputGender,string inputHealthCondition1,
-			string inputHealthCondition2, string inputHealthCondition3, string inputHealthCondition4)
+
+        public Customer(string inputEmail,string inputPassword,string inputFirstName, string inputLastName, string inputAddress, string inputPhoneNumber,string inputGender,bool inputHealthCondition1,
+			bool inputHealthCondition2, bool inputHealthCondition3, bool inputHealthCondition4)
 		{
 			firstName = inputFirstName;
 			lastName = inputLastName;
 			address = inputAddress;
 			phoneNumber = inputPhoneNumber;
 			email = inputEmail;
-			gender = inputGender;
+			sex = inputGender;
 			password = inputPassword;
-			healthCondition1 = inputHealthCondition1;
-			healthCondition2 = inputHealthCondition2;
-			healthCondition3 = inputHealthCondition3;
-			healthCondition4 = inputHealthCondition4;
+			heartAttack = inputHealthCondition1;
+			diabetes = inputHealthCondition2;
+			chronicDisease = inputHealthCondition3;
+			other = inputHealthCondition4;
 		}
 		public Customer()
 		{

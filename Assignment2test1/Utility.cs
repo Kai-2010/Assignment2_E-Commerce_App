@@ -60,24 +60,28 @@ namespace Assignment2test1
 			}
 		}
 
-		public static string[] readLoginFile()
-		{
-			string[] loginFile = System.IO.File.ReadAllLines("login.txt");
-			return loginFile;
-		}
+        public static void updateCustomer(Customer customer)
+        {
+            using (var context = new HealthContext())
+            {
+                var targetCustomer = context.Customers.Find(customer.CustomerId);
+                targetCustomer.email = customer.email;
+                targetCustomer.phoneNumber = customer.phoneNumber;
+                targetCustomer.address = customer.address;
+                targetCustomer.password = customer.password;
+                context.SaveChanges();
+            }
+        }
 
-		//public static void saveCustomerDetails(string email, string password, string firstName, string lastName, string address, string phoneNumber, int sex)
-		public static void saveCustomerDetails(List<Customer> listOfCustomers)
-		{
-			using (StreamWriter writer = new StreamWriter("login.txt"))
-			{
-				foreach (Customer customer in listOfCustomers)
-				{
-					writer.WriteLine($"{customer.email}|{customer.password}|{customer.firstName}|{customer.lastName}|{customer.phoneNumber}|{customer.address}|{customer.gender}|{customer.healthCondition1}|{customer.healthCondition2}|{customer.healthCondition3}|{customer.healthCondition4}");
-				}
-			}
-		}
+        public static void addCustomer(Customer customer)
+        {
+            using (var context = new HealthContext())
+            {
+                context.Customers.Add(customer);
+                context.SaveChanges();
+            }
+        }
 
-	}
+    }
 }
 

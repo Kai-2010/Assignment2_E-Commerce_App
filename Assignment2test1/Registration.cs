@@ -24,158 +24,150 @@ namespace Assignment2test1
 	public partial class Registration : Form
 	{
 		string gender;
-		List<Customer> listOfCustomers = new List<Customer>();
-		List<string> selectedHealthConditions = new List<string>();
-		private bool validateInput = true;
-		string healthCondition1;
-		string healthCondition2;
-		string healthCondition3;
-		string healthCondition4;
 
-		public Registration(List<Customer> listOfCustomers)
+		public Registration()
 		{
 			InitializeComponent();
-			this.listOfCustomers = listOfCustomers;
 
 		}
 
 		public void Form2_Load(object sender, EventArgs e)
 		{
 		}
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Customer customer;
+            using (var context = new HealthContext())
+            {
+                customer = context.Customers.FirstOrDefault(c => c.email == email.Text);
+            }
+            string errorMessage = verifyAll();
+            if (errorMessage != "")
+            {
+                MessageBox.Show(errorMessage);
+            }
+            else if (customer != null)
+            {
+                MessageBox.Show("Email Id is not available", "Please enter another email Id", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                email.Clear();
+                email.Focus();
+            }
+            else
+            {
+                customer = new Customer(email.Text, password.Text, firstName.Text, lastName.Text, address.Text, phoneNumber.Text, gender, checkBox1.Checked, checkBox2.Checked, checkBox3.Checked, checkBox4.Checked);
+                MessageBox.Show("New Customer created successfully", $"Your Login ID is : {email.Text}", MessageBoxButtons.OK);
+                utility.addCustomer(customer);
+                this.Close();
+                new Login().Show();
+            }
+        }
 
-		private void textBox1_Leave(object sender, EventArgs e)
-		{
-			if (validateInput)
-			{
-				if (utility.isNameValid(firstName.Text) == false)
-				{
-					MessageBox.Show("Please enter a valid First Name");
-					firstName.Clear();
-					firstName.Focus();
+        private string verifyAll()
+        {
+            string errorMessage = "";
+            errorMessage = verifyFirstName(errorMessage);
+            errorMessage = verifyLastName(errorMessage);
+            errorMessage = verifyEmail(errorMessage);
+            errorMessage = verifyPhone(errorMessage);
+            errorMessage = verifyAddress(errorMessage);
+            errorMessage = verifyPassword(errorMessage);
+            errorMessage = verifyGender(errorMessage);
+            return errorMessage;
+        }
 
-				}
-				else if (string.IsNullOrEmpty(firstName.Text) == true)
-				{
+        private string verifyFirstName(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(firstName.Text))
+            {
+                errorMessage += "Please fill in your first name\n";
+                firstName.Clear();
+            }
+            return errorMessage;
+        }
 
-					MessageBox.Show("Please fill in your First Name");
-					firstName.Clear();
-					firstName.Focus();
-				}
-			}
-		}
-		private void textBox2_Leave(object sender, EventArgs e)
-		{
-			if (utility.isNameValid(lastName.Text) == false)
-			{
-				MessageBox.Show("Please enter a valid Last Name");
-				lastName.Clear();
-				lastName.Focus();
+        private string verifyLastName(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(lastName.Text))
+            {
+                errorMessage += "Please fill in your last name\n";
+                lastName.Clear();
+            }
+            return errorMessage;
+        }
 
-			}
-			else if (string.IsNullOrEmpty(firstName.Text) == true)
-			{
+        private string verifyEmail(string errorMessage)
+        {
+            if (utility.isEmailValid(email.Text) == false)
+            {
+                errorMessage += "Please enter a valid email\n";
+                email.Clear();
+            }
+            else if (string.IsNullOrEmpty(email.Text))
+            {
+                errorMessage += "Please fill in your email\n";
+                email.Clear();
+            }
+            return errorMessage;
+        }
 
-				MessageBox.Show("Please fill in your Last Name");
-				lastName.Clear();
-				lastName.Focus();
-			}
-		}
-		private void textBox3_Leave(object sender, EventArgs e)
-		{
-			if (utility.isEmailValid(email.Text) == false)
-			{
-				MessageBox.Show("Please enter a valid email");
-				email.Clear();
-				email.Focus();
-			}
-			else if (string.IsNullOrEmpty(email.Text) == true)
-			{
-				MessageBox.Show("Please fill in your email");
-				email.Clear();
-				email.Focus();
-			}
-		}
-		private void textBox4_Leave(object sender, EventArgs e)
-		{
-			if (utility.phoneValidation(phoneNumber.Text) == false || utility.phoneValidation1(phoneNumber.Text) == false)
-			{
-				MessageBox.Show("Please enter a valid phone number");
-				phoneNumber.Clear();
-				phoneNumber.Focus();
-			}
-			else if (string.IsNullOrEmpty(phoneNumber.Text) == true)
-			{
-				MessageBox.Show("Please fill in your phone number");
-				phoneNumber.Clear();
-				phoneNumber.Focus();
-			}
-		}
-		private void textBox5_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrEmpty(address.Text) == true)
-			{
-				MessageBox.Show("Please fill in your address");
-				address.Clear();
-				address.Focus();
-			}
-		}
-		private void textBox6_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrEmpty(password.Text) == true)
-			{
-				MessageBox.Show("Please fill in your password");
-				password.Clear();
-				password.Focus();
-			}
-			else if (utility.isPasswordValid(password.Text) == false)
-			{
-				MessageBox.Show("Please fill a valid password");
-				password.Clear();
-				password.Focus();
-			}
-		}
-		private void textBox7_Leave(object sender, EventArgs e)
-		{
-			if (password.Text != repeatPassword.Text)
-			{
-				MessageBox.Show("Reenter passwords. They are not matching");
-				password.Clear();
-				repeatPassword.Clear();
-				password.Focus();
-			}
-		}
+        private string verifyPhone(string errorMessage)
+        {
+            if (utility.phoneValidation(phoneNumber.Text) == false || utility.phoneValidation1(phoneNumber.Text) == false)
+            {
+                errorMessage += "Please enter a valid phone number\n";
+                phoneNumber.Clear();
+            }
+            else if (string.IsNullOrEmpty(phoneNumber.Text))
+            {
+                errorMessage += "Please fill in your phone number\n";
+                phoneNumber.Clear();
+            }
+            return errorMessage;
+        }
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			if (password.Text != repeatPassword.Text)
-			{
-				MessageBox.Show("Reenter passwords. They are not matching");
-				password.Clear();
-				repeatPassword.Clear();
-				password.Focus();
-			}
-			else
-			{
-				if (listOfCustomers.Any(Customer => Customer.email == email.Text) == true)
-				{
-					MessageBox.Show("Email Id is not available", "Please enter another email Id", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-					email.Clear();
-					email.Focus();
-				}
-				else
-				{
-					Customer newCustomer = new Customer(email.Text, password.Text, firstName.Text, lastName.Text, address.Text, phoneNumber.Text, gender,healthCondition1, healthCondition2, healthCondition3, healthCondition4);
-					listOfCustomers.Add(newCustomer);
-					utility.saveCustomerDetails(listOfCustomers);
-					MessageBox.Show("New Customer created successfully", $"Your Login ID is : {email.Text}", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-					this.Close();
-					new Login().Show();
-				}
+        private string verifyAddress(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(address.Text))
+            {
+                errorMessage += "Please fill in your address\n";
+                address.Clear();
+            }
+            return errorMessage;
+        }
 
-			}
-		}
+        private string verifyPassword(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(password.Text))
+            {
+                errorMessage += "Please fill in your password\n";
+                password.Clear();
+                repeatPassword.Clear();
+            }
+            else if (utility.isPasswordValid(password.Text) == false)
+            {
+                errorMessage += "Please fill a valid password\n";
+                password.Clear();
+                repeatPassword.Clear();
+            }
+            else if (password.Text != repeatPassword.Text)
+            {
+                errorMessage += "Reenter passwords. They are not matching\n";
+                password.Clear();
+                repeatPassword.Clear();
+            }
+            return errorMessage;
+        }
 
-		private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private string verifyGender(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(gender))
+            {
+                errorMessage += "Please select a gender\n";
+            }
+            return errorMessage;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "M";
 		}
@@ -192,57 +184,8 @@ namespace Assignment2test1
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			validateInput = false;
 			this.Close();
 			new Login().Show();
-		}
-
-		private void checkBox1_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox1.Checked)
-			{
-				healthCondition1 = "H";
-			}
-			else
-			{
-				healthCondition1 = "";
-			}
-		}
-
-		private void checkBox2_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox2.Checked)
-			{
-				healthCondition2 = "D";
-			}
-			else
-			{
-				healthCondition2 = "";
-			}
-		}
-
-		private void checkBox3_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox3.Checked)
-			{
-				healthCondition3 = "C";
-			}
-			else
-			{
-				healthCondition3 = "";
-			}
-		}
-
-		private void checkBox4_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBox4.Checked)
-			{
-				healthCondition4 = "O";
-			}
-			else
-			{
-				healthCondition4 = "";
-			}
 		}
 	}
 }

@@ -60,7 +60,6 @@
 			firstName.Name = "firstName";
 			firstName.Size = new Size(100, 23);
 			firstName.TabIndex = 0;
-			firstName.Leave += textBox1_Leave;
 			// 
 			// lastName
 			// 
@@ -68,7 +67,6 @@
 			lastName.Name = "lastName";
 			lastName.Size = new Size(100, 23);
 			lastName.TabIndex = 1;
-			lastName.Leave += textBox2_Leave;
 			// 
 			// email
 			// 
@@ -76,7 +74,6 @@
 			email.Name = "email";
 			email.Size = new Size(100, 23);
 			email.TabIndex = 2;
-			email.Leave += textBox3_Leave;
 			// 
 			// phoneNumber
 			// 
@@ -84,7 +81,6 @@
 			phoneNumber.Name = "phoneNumber";
 			phoneNumber.Size = new Size(100, 23);
 			phoneNumber.TabIndex = 3;
-			phoneNumber.Leave += textBox4_Leave;
 			// 
 			// address
 			// 
@@ -92,7 +88,6 @@
 			address.Name = "address";
 			address.Size = new Size(100, 23);
 			address.TabIndex = 4;
-			address.Leave += textBox5_Leave;
 			// 
 			// radioButton1
 			// 
@@ -192,7 +187,6 @@
 			password.Size = new Size(100, 23);
 			password.TabIndex = 14;
 			password.UseSystemPasswordChar = true;
-			password.Leave += textBox6_Leave;
 			// 
 			// label6
 			// 
@@ -210,7 +204,6 @@
 			repeatPassword.Size = new Size(100, 23);
 			repeatPassword.TabIndex = 16;
 			repeatPassword.UseSystemPasswordChar = true;
-			repeatPassword.Leave += textBox7_Leave;
 			// 
 			// label7
 			// 
@@ -240,7 +233,6 @@
 			checkBox1.TabIndex = 28;
 			checkBox1.Text = "Heart Attack";
 			checkBox1.UseVisualStyleBackColor = true;
-			checkBox1.CheckedChanged += checkBox1_CheckedChanged;
 			// 
 			// checkBox2
 			// 
@@ -251,7 +243,6 @@
 			checkBox2.TabIndex = 29;
 			checkBox2.Text = "Diabetes";
 			checkBox2.UseVisualStyleBackColor = true;
-			checkBox2.CheckedChanged += checkBox2_CheckedChanged;
 			// 
 			// checkBox3
 			// 
@@ -262,7 +253,6 @@
 			checkBox3.TabIndex = 30;
 			checkBox3.Text = "Chronic Disease";
 			checkBox3.UseVisualStyleBackColor = true;
-			checkBox3.CheckedChanged += checkBox3_CheckedChanged;
 			// 
 			// checkBox4
 			// 
@@ -273,7 +263,6 @@
 			checkBox4.TabIndex = 31;
 			checkBox4.Text = "Other";
 			checkBox4.UseVisualStyleBackColor = true;
-			checkBox4.CheckedChanged += checkBox4_CheckedChanged;
 			// 
 			// label8
 			// 

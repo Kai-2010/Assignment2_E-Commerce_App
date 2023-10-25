@@ -15,7 +15,6 @@ namespace Assignment2test1
 	public partial class PostForm : Form
 	{
 		Customer loggedInCustomer;
-		List<Customer> listOfCustomers = new List<Customer>();
 		List<Post> postsAndReplies = new List<Post>();
 		Post newPost = new Post();
 		public PostForm(Customer loggedInCustomer, List<Post> postsAndReplies)
@@ -57,7 +56,7 @@ namespace Assignment2test1
 			else
 			{
 				this.Close();
-				new DashBoard(loggedInCustomer,listOfCustomers).Show();
+				new DashBoard(loggedInCustomer).Show();
 			}
 		}
 
@@ -66,7 +65,7 @@ namespace Assignment2test1
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			new CommunityForum(loggedInCustomer, listOfCustomers).Show();
+			new CommunityForum(loggedInCustomer).Show();
 		}
 
 		private void PostForm_Load(object sender, EventArgs e)

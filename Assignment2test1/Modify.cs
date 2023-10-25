@@ -10,167 +10,115 @@ namespace Assignment2test1
 
 	public partial class Modify : Form
 	{
-		List<Customer> listOfCustomers = new List<Customer>();
-		string firstName;
-		string lastName;
-		string address;
-		string email;
-		string phoneNumber;
-		int sex;
-		string password;
-		string repeatPassword;
 		Customer loggedInCustomer;
-		public Modify(Customer loggedInCustomer, List<Customer> listOfCustomers)
+		public Modify(Customer loggedInCustomer)
 		{
-			InitializeComponent();
-			this.loggedInCustomer = loggedInCustomer;
-			this.listOfCustomers = listOfCustomers;
-		}
-		private void Modify_Load(object sender, EventArgs e)
-		{
-			FN.Text = loggedInCustomer.firstName;
-			LN.Text = loggedInCustomer.lastName;
-			Email.Text = loggedInCustomer.email;
-			phone.Text = loggedInCustomer.phoneNumber;
-			Add.Text = loggedInCustomer.address;
-			Password.Text = loggedInCustomer.password;
-			RepeatPassword.Text = loggedInCustomer.password;
-			gender.Text = loggedInCustomer.gender;
-		}
-		private void FN_TextChanged(object sender, EventArgs e)
-		{
-			loggedInCustomer.firstName = FN.Text;
-		}
+            InitializeComponent();
+            this.loggedInCustomer = loggedInCustomer;
+            FN.Text = loggedInCustomer.firstName;
+            LN.Text = loggedInCustomer.lastName;
+            Email.Text = loggedInCustomer.email;
+            phone.Text = loggedInCustomer.phoneNumber;
+            Add.Text = loggedInCustomer.address;
+            Password.Text = loggedInCustomer.password;
+            RepeatPassword.Text = loggedInCustomer.password;
+            gender.Text = loggedInCustomer.sex;
+        }
 
-		private void LN_TextChanged(object sender, EventArgs e)
-		{
-			loggedInCustomer.lastName = LN.Text;
+        private void submit_Click(object sender, EventArgs e)
+        {
+            string errorMessage = verifyAll();
+            if (errorMessage != "")
+            {
+                MessageBox.Show(errorMessage);
+            }
+            else
+            {
+                loggedInCustomer.email = Email.Text;
+                loggedInCustomer.phoneNumber = phone.Text;
+                loggedInCustomer.address = Add.Text;
+                loggedInCustomer.password = Password.Text;
+                utility.updateCustomer(loggedInCustomer);
+                Close();
+                new DashBoard(loggedInCustomer).Show();
+            }
+        }
 
-		}
+        private string verifyAll()
+        {
+            string errorMessage = "";
+            errorMessage = verifyEmail(errorMessage);
+            errorMessage = verifyPhone(errorMessage);
+            errorMessage = verifyAddress(errorMessage);
+            errorMessage = verifyPassword(errorMessage);
+            return errorMessage;
+        }
 
-		private void email_TextChanged(object sender, EventArgs e)
-		{
-			loggedInCustomer.email = Email.Text;
+        private string verifyEmail(string errorMessage)
+        {
+            if (utility.isEmailValid(Email.Text) == false)
+            {
+                errorMessage += "Please enter a valid email\n";
+                Email.Text = loggedInCustomer.email;
+            }
+            else if (string.IsNullOrEmpty(Email.Text))
+            {
+                errorMessage += "Please fill in your email\n";
+                Email.Text = loggedInCustomer.email;
+            }
+            return errorMessage;
+        }
 
-		}
+        private string verifyPhone(string errorMessage)
+        {
+            if (utility.phoneValidation(phone.Text) == false || utility.phoneValidation1(phone.Text) == false)
+            {
+                errorMessage += "Please enter a valid phone number\n";
+                phone.Text = loggedInCustomer.phoneNumber;
+            }
+            else if (string.IsNullOrEmpty(phone.Text))
+            {
+                errorMessage += "Please fill in your phone number\n";
+                phone.Text = loggedInCustomer.phoneNumber;
+            }
+            return errorMessage;
+        }
 
-		private void phone_TextChanged(object sender, EventArgs e)
-		{
-			loggedInCustomer.phoneNumber = phone.Text;
+        private string verifyAddress(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(Add.Text))
+            {
+                errorMessage += "Please fill in your address\n";
+                Add.Text = loggedInCustomer.address;
+            }
+            return errorMessage;
+        }
 
-		}
+        private string verifyPassword(string errorMessage)
+        {
+            if (string.IsNullOrEmpty(Password.Text))
+            {
+                errorMessage += "Please fill in your password\n";
+                Password.Text = loggedInCustomer.password;
+            }
+            else if (utility.isPasswordValid(Password.Text) == false)
+            {
+                errorMessage += "Please fill a valid password\n";
+                Password.Text = loggedInCustomer.password;
+            }
+            else if (Password.Text != RepeatPassword.Text)
+            {
+                errorMessage += "Reenter passwords. They are not matching\n";
+                Password.Text = loggedInCustomer.password;
+                RepeatPassword.Text = loggedInCustomer.password;
+            }
+            return errorMessage;
+        }
 
-		private void Add_TextChanged(object sender, EventArgs e)
-		{
-			loggedInCustomer.address = Add.Text;
-		}
-
-		private void password_TextChanged(object sender, EventArgs e)
-		{
-			loggedInCustomer.password = Password.Text;
-
-		}
-
-		private void repeatPassword_TextChanged(object sender, EventArgs e)
-		{
-			repeatPassword = RepeatPassword.Text;
-
-		}
-		private void phone_Leave(object sender, EventArgs e)
-		{
-			if (utility.phoneValidation(phone.Text) == false || utility.phoneValidation1(phone.Text) == false)
-			{
-				MessageBox.Show("Please enter a valid phone number");
-				phone.Clear();
-				phone.Focus();
-			}
-			else if (string.IsNullOrEmpty(phone.Text) == true)
-			{
-				MessageBox.Show("Please fill in your phone number");
-				phone.Clear();
-				phone.Focus();
-			}
-			else
-			{
-				loggedInCustomer.phoneNumber = phone.Text;
-			}
-		}
-		private void Add_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrEmpty(Add.Text) == true)
-			{
-				MessageBox.Show("Please fill in your address");
-				Add.Clear();
-				Add.Focus();
-			}
-			else
-			{
-				loggedInCustomer.address = Add.Text;
-			}
-		}
-		private void password_Leave(object sender, EventArgs e)
-		{
-			if (string.IsNullOrEmpty(Password.Text) == true)
-			{
-				MessageBox.Show("Please fill in your password");
-				Password.Clear();
-				Password.Focus();
-			}
-			else if (utility.isPasswordValid(password) == false)
-			{
-				MessageBox.Show("Please fill a valid password");
-				Password.Clear();
-				Password.Focus();
-			}
-			else
-			{
-				loggedInCustomer.password = Password.Text;
-			}
-		}
-		private void repeatPassword_Leave(object sender, EventArgs e)
-		{
-			if (Password.Text != RepeatPassword.Text)
-			{
-				MessageBox.Show("Reenter passwords. They are not matching");
-				Password.Clear();
-				RepeatPassword.Clear();
-				Password.Focus();
-			}
-			else
-			{
-				repeatPassword = RepeatPassword.Text;
-			}
-		}
-		private void submit_Click(object sender, EventArgs e)
-		{
-			if (Password.Text != RepeatPassword.Text)
-			{
-				MessageBox.Show("Reenter passwords. They are not matching");
-				Password.Clear();
-				RepeatPassword.Clear();
-				Password.Focus();
-			}
-			else
-			{
-				Customer customerToUpdate = this.listOfCustomers.FirstOrDefault(c => c.email == loggedInCustomer.email);
-				if (customerToUpdate != null)
-				{
-					customerToUpdate.firstName = loggedInCustomer.firstName;
-					customerToUpdate.lastName = loggedInCustomer.lastName;
-					customerToUpdate.address = loggedInCustomer.address;
-					customerToUpdate.phoneNumber = loggedInCustomer.phoneNumber;
-					customerToUpdate.password = loggedInCustomer.password;
-					customerToUpdate.email = loggedInCustomer.email;
-					customerToUpdate.gender = loggedInCustomer.gender;
-					utility.saveCustomerDetails(this.listOfCustomers);
-				}
-			}
-		}
-
-		private void Cancel_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
 		{
 			this.Close();
-			new DashBoard(loggedInCustomer,listOfCustomers).Show();
+			new DashBoard(loggedInCustomer).Show();
 		}
 	}
 }

@@ -56,7 +56,6 @@
 			FN.ReadOnly = true;
 			FN.Size = new Size(141, 31);
 			FN.TabIndex = 0;
-			FN.TextChanged += FN_TextChanged;
 			// 
 			// LN
 			// 
@@ -66,7 +65,6 @@
 			LN.ReadOnly = true;
 			LN.Size = new Size(141, 31);
 			LN.TabIndex = 1;
-			LN.TextChanged += LN_TextChanged;
 			// 
 			// Email
 			// 
@@ -75,7 +73,6 @@
 			Email.Name = "Email";
 			Email.Size = new Size(141, 31);
 			Email.TabIndex = 2;
-			Email.TextChanged += email_TextChanged;
 			// 
 			// phone
 			// 
@@ -84,7 +81,6 @@
 			phone.Name = "phone";
 			phone.Size = new Size(141, 31);
 			phone.TabIndex = 3;
-			phone.TextChanged += phone_TextChanged;
 			// 
 			// Add
 			// 
@@ -93,7 +89,6 @@
 			Add.Name = "Add";
 			Add.Size = new Size(141, 31);
 			Add.TabIndex = 4;
-			Add.TextChanged += Add_TextChanged;
 			// 
 			// Password
 			// 
@@ -102,7 +97,6 @@
 			Password.Name = "Password";
 			Password.Size = new Size(141, 31);
 			Password.TabIndex = 5;
-			Password.TextChanged += password_TextChanged;
 			// 
 			// RepeatPassword
 			// 
@@ -111,7 +105,6 @@
 			RepeatPassword.Name = "RepeatPassword";
 			RepeatPassword.Size = new Size(141, 31);
 			RepeatPassword.TabIndex = 6;
-			RepeatPassword.TextChanged += repeatPassword_TextChanged;
 			// 
 			// Submit
 			// 
@@ -122,11 +115,11 @@
 			Submit.TabIndex = 7;
 			Submit.Text = "Submit";
 			Submit.UseVisualStyleBackColor = true;
-			Submit.Click += submit_Click;
-			// 
-			// gender
-			// 
-			gender.Location = new Point(486, 438);
+            Submit.Click += submit_Click;
+            // 
+            // gender
+            // 
+            gender.Location = new Point(486, 438);
 			gender.Margin = new Padding(4, 5, 4, 5);
 			gender.Name = "gender";
 			gender.ReadOnly = true;
@@ -241,7 +234,6 @@
 			Margin = new Padding(4, 5, 4, 5);
 			Name = "Modify";
 			Text = "Modify";
-			Load += Modify_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}

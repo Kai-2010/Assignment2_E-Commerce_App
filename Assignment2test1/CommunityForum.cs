@@ -9,14 +9,12 @@ namespace Assignment2test1
 	public partial class CommunityForum : Form
 	{
 		Customer loggedInCustomer;
-		List<Customer> listOfCustomers = new List<Customer>();
 		List<Post> postsAndReplies = new List<Post>();
 
-		public CommunityForum(Customer loggedInCustomer, List<Customer> listOfCustomers)
+		public CommunityForum(Customer loggedInCustomer)
 		{
 			InitializeComponent();
 			this.loggedInCustomer = loggedInCustomer;
-			this.listOfCustomers = listOfCustomers;
 		}
 
 		public void posts_Load(object sender, EventArgs e)
@@ -98,7 +96,7 @@ namespace Assignment2test1
 					}
 					File.WriteAllLines("post - Copy - Copy.txt", contentToSave);
 					Hide();
-					new DashBoard(loggedInCustomer, listOfCustomers).Show();
+					new DashBoard(loggedInCustomer).Show();
 				}
 			}
 		}
@@ -114,7 +112,7 @@ namespace Assignment2test1
 		{
 			Hide();
 			this.Close();
-			new DashBoard(loggedInCustomer, listOfCustomers).Show();
+			new DashBoard(loggedInCustomer).Show();
 		}
 	}
 }
