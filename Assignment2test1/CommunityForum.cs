@@ -19,8 +19,10 @@ namespace Assignment2test1
 
 		public void posts_Load(object sender, EventArgs e)
 		{
+			
 			string[] posts = File.ReadAllLines("post - Copy - Copy.txt").ToArray();
 			string replyBoxText = "";
+			
 			for (int i = 0; i < posts.Length; i++)
 			{
 				replyBoxText = "";
@@ -52,12 +54,10 @@ namespace Assignment2test1
 				{
 					replyBoxText = replyBoxText + (ii + 1).ToString() + ". " + postsAndReplies[i].replies[ii] + Environment.NewLine;
 				}
-				if (replyBoxText.Count() > 0)
-				{
 					replyBox.Text = replyBoxText;
+					replyBox.Dock = DockStyle.Fill;
 					flowLayoutPanel1.Controls.Add(replyBox);
-				}
-
+				
 				// Add a "Reply" button for each post
 				Button replyButton = new Button();
 				replyButton.Text = "Reply";
@@ -74,29 +74,29 @@ namespace Assignment2test1
 			List<string> contentToSave = new List<string>();
 			string contentToSaveString = "";
 			// Open a dialog for composing a reply
-			using (ResponseForm responseForm = new ResponseForm())
+			using (ResponseForm responseForm = new ResponseForm(postsAndReplies[postIndex]))
 			{
 				if (responseForm.ShowDialog() == DialogResult.OK)
 				{
 					// Get the reply text from the response Form
 					string replyText = responseForm.replyString;
-					// Save the reply text to the appropriate post in the data structure
-					postsAndReplies[postIndex].replies.Add(replyText);
+					
+						// Save the reply text to the appropriate post in the data structure
+						postsAndReplies[postIndex].replies.Add(replyText);
 
-					for (int ii = 0; ii < postsAndReplies.Count; ii++)
-					{
-						contentToSaveString = "";
-						contentToSaveString = contentToSaveString + postsAndReplies[ii].post;
-						for (int iii = 0; iii < postsAndReplies[ii].replies.Count; iii++)
+						for (int ii = 0; ii < postsAndReplies.Count; ii++)
 						{
-							contentToSaveString = contentToSaveString + "|" + postsAndReplies[ii].replies[iii];
+							contentToSaveString = "";
+							contentToSaveString = contentToSaveString + postsAndReplies[ii].post;
+							for (int iii = 0; iii < postsAndReplies[ii].replies.Count; iii++)
+							{
+								contentToSaveString = contentToSaveString + "|" + postsAndReplies[ii].replies[iii];
+							}
+							contentToSave.Add(contentToSaveString);
 						}
-						contentToSaveString += "\n";
-						contentToSave.Add(contentToSaveString);
-					}
-					File.WriteAllLines("post - Copy - Copy.txt", contentToSave);
+						File.WriteAllLines("post - Copy - Copy.txt", contentToSave);
 					Hide();
-					new DashBoard(loggedInCustomer).Show();
+						new DashBoard(loggedInCustomer).Show();
 				}
 			}
 		}
@@ -104,14 +104,12 @@ namespace Assignment2test1
 		private void Submit_Click_1(object sender, EventArgs e)
 		{
 			Hide();
-			this.Close();
 			new PostForm(loggedInCustomer, postsAndReplies).Show();
 		}
 
 		private void Cancel_Click_1(object sender, EventArgs e)
 		{
 			Hide();
-			this.Close();
 			new DashBoard(loggedInCustomer).Show();
 		}
 	}

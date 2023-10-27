@@ -1,4 +1,3 @@
-peter.pan@hotmail.com|123456|Peter|Pan|0490564321|12 Main Street|M|H|D|C|O
-tammy@tammy.com|123456|Tammy|Tammy|0456789010|12 A Street|F||||
-test.test@hotmail.com|1234567Aa@|test|test|12 test street|0490373534|F||D||
-user.user@gmail.com|1234567Ss#|user|user|0490876543|12 User Street|F||||
+peter.pan@hotmail.com|1234567Ss#|Peter|Pan|0490876543|1 Main Junction BaulkHam Hills NSW 2153|M|H|D||
+tcd@hotmail.com|1234567Aa@|pandu|thangu|0448349524|12 Watkins|M|H|||
+usert.usert@outlook.com|1234567Gg$|usert|usert|0490373534|12 Junction Road Winston Hills NSW|F||D|C|

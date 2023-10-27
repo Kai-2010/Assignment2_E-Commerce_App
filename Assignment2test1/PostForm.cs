@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-namespace Assignment2test1
+﻿namespace Assignment2test1
 {
 
 	public partial class PostForm : Form
 	{
 		Customer loggedInCustomer;
+		List<Customer> listOfCustomers = new List<Customer>();
 		List<Post> postsAndReplies = new List<Post>();
 		Post newPost = new Post();
 		public PostForm(Customer loggedInCustomer, List<Post> postsAndReplies)
@@ -33,7 +23,6 @@ namespace Assignment2test1
 		{
 			string contentToSaveString = "";
 			List<string> contentToSave = new List<string>();
-			//System.IO.File.AppendAllText(string.Format("post - Copy - Copy.txt"), (string.Format("\n"+post)));
 			postsAndReplies.Add(newPost);
 			for (int ii = 0; ii < postsAndReplies.Count; ii++)
 			{
@@ -55,22 +44,15 @@ namespace Assignment2test1
 			}
 			else
 			{
-				this.Close();
+				Hide();
 				new DashBoard(loggedInCustomer).Show();
 			}
 		}
 
-		
-
 		private void Cancel_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Hide();
 			new CommunityForum(loggedInCustomer).Show();
-		}
-
-		private void PostForm_Load(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

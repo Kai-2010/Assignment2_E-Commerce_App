@@ -1,29 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Numerics;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Net.WebRequestMethods;
-using static System.Windows.Forms.AxHost;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
-
-namespace Assignment2test1
+﻿namespace Assignment2test1
 {
 	public partial class Registration : Form
 	{
-		string gender;
+		// Global variables that will be used in the program
+		string gender = "";// blank string used to keep track of the gender entered by the user
 
 		public Registration()
 		{
@@ -31,17 +11,20 @@ namespace Assignment2test1
 
 		}
 
-		public void Form2_Load(object sender, EventArgs e)
+		// First attempts to return a customer from the database using the text in the email and password text boxes.
+		// Then verifies that all the text boxes have valid inputs by checking if an error message was generated (shows the message if true).
+		// Then if a customer was returned from the database (i.e. customer already exists), the registration is rejected.
+        // Finally, if else, a new customer is created and added to the database, then the user is returned to the login page.
+		private void submit_Click(object sender, EventArgs e)
 		{
-		}
-        private void button1_Click(object sender, EventArgs e)
-        {
             Customer customer;
+            string errorMessage = verifyAll();
+
             using (var context = new HealthContext())
             {
                 customer = context.Customers.FirstOrDefault(c => c.email == email.Text);
             }
-            string errorMessage = verifyAll();
+      
             if (errorMessage != "")
             {
                 MessageBox.Show(errorMessage);
@@ -54,7 +37,7 @@ namespace Assignment2test1
             }
             else
             {
-                customer = new Customer(email.Text, password.Text, firstName.Text, lastName.Text, address.Text, phoneNumber.Text, gender, checkBox1.Checked, checkBox2.Checked, checkBox3.Checked, checkBox4.Checked);
+                customer = new Customer(firstName.Text, lastName.Text, address.Text, email.Text, phoneNumber.Text, password.Text, gender, heartAttackCheckBox.Checked, diabetesCheckBox.Checked, chronicDiseaseCheckBox.Checked, otherCheckBox.Checked);
                 MessageBox.Show("New Customer created successfully", $"Your Login ID is : {email.Text}", MessageBoxButtons.OK);
                 utility.addCustomer(customer);
                 this.Close();
@@ -62,6 +45,7 @@ namespace Assignment2test1
             }
         }
 
+        //Calls all the verification methods in one method, returns an error message (will be blank if verified successfully).
         private string verifyAll()
         {
             string errorMessage = "";
@@ -75,9 +59,18 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the first name of a user.
+        // When called, a method from the utility class is used to validate the first name, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyFirstName(string errorMessage)
         {
-            if (string.IsNullOrEmpty(firstName.Text))
+            if (utility.isNameValid(firstName.Text) == false)
+            {
+                errorMessage += "Please enter a valid First Name\n";
+                firstName.Clear();
+            }
+            else if (string.IsNullOrEmpty(firstName.Text))
             {
                 errorMessage += "Please fill in your first name\n";
                 firstName.Clear();
@@ -85,9 +78,18 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the last name of a user.
+        // When called, a method from the utility class is used to validate the last name, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyLastName(string errorMessage)
         {
-            if (string.IsNullOrEmpty(lastName.Text))
+            if (utility.isNameValid(lastName.Text) == false)
+            {
+                errorMessage += "Please enter a valid Last Name\n";
+                lastName.Clear();
+            }
+            else if (string.IsNullOrEmpty(lastName.Text))
             {
                 errorMessage += "Please fill in your last name\n";
                 lastName.Clear();
@@ -95,6 +97,10 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the email of a user.
+        // When called, a method from the utility class is used to validate the email, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyEmail(string errorMessage)
         {
             if (utility.isEmailValid(email.Text) == false)
@@ -110,6 +116,10 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the phone number of a user.
+        // When called, a method from the utility class is used to validate the phone number, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyPhone(string errorMessage)
         {
             if (utility.phoneValidation(phoneNumber.Text) == false || utility.phoneValidation1(phoneNumber.Text) == false)
@@ -125,6 +135,9 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the address of a user.
+        // When called, a check is completed to ensure the user does not leave the textBox blank, adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyAddress(string errorMessage)
         {
             if (string.IsNullOrEmpty(address.Text))
@@ -135,6 +148,11 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the password of a user.
+        // When called, a method from the utility class is used to validate the password, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // A third check compares that password and repeat password text boxes and generates an error message if they do not match.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyPassword(string errorMessage)
         {
             if (string.IsNullOrEmpty(password.Text))
@@ -158,6 +176,9 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the gender of a user.
+        // When called, a check is completed to ensure the user does not leave the gender options blank, adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyGender(string errorMessage)
         {
             if (string.IsNullOrEmpty(gender))
@@ -166,25 +187,26 @@ namespace Assignment2test1
             }
             return errorMessage;
         }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        // used to track the gender of the user
+        private void maleRadioButton_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "M";
 		}
-
-		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		// used to track the gender of the user
+		private void femaleRadioButton_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "F";
 		}
-
-		private void radioButton3_CheckedChanged(object sender, EventArgs e)
+		// used to track the gender of the user
+		private void preferNotToSayRadioButton_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "P";
 		}
 
-		private void button2_Click(object sender, EventArgs e)
+		// Cancels registration and sends the user back to the login page.
+		private void Cancel_Click(object sender, EventArgs e)
 		{
-			this.Close();
+			Hide();
 			new Login().Show();
 		}
 	}

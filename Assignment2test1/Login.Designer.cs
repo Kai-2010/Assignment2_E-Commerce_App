@@ -28,101 +28,108 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			textBox1 = new TextBox();
-			textBox2 = new TextBox();
-			button1 = new Button();
-			button2 = new Button();
-			label1 = new Label();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+			userNameEntry = new TextBox();
+			passwordEntry = new TextBox();
+			submit = new Button();
+			signUp = new Button();
+			userName = new Label();
 			Password = new Label();
+			pictureBox1 = new PictureBox();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
 			// 
-			// textBox1
+			// userNameEntry
 			// 
-			textBox1.Location = new Point(590, 100);
-			textBox1.Margin = new Padding(4, 5, 4, 5);
-			textBox1.Name = "textBox1";
-			textBox1.Size = new Size(141, 31);
-			textBox1.TabIndex = 0;
+			userNameEntry.Location = new Point(515, 60);
+			userNameEntry.Name = "userNameEntry";
+			userNameEntry.Size = new Size(126, 23);
+			userNameEntry.TabIndex = 0;
 			// 
-			// textBox2
+			// passwordEntry
 			// 
-			textBox2.Location = new Point(590, 192);
-			textBox2.Margin = new Padding(4, 5, 4, 5);
-			textBox2.Name = "textBox2";
-			textBox2.Size = new Size(141, 31);
-			textBox2.TabIndex = 1;
-			textBox2.UseSystemPasswordChar = true;
-			textBox2.TextChanged += textBox2_TextChanged;
+			passwordEntry.Location = new Point(515, 105);
+			passwordEntry.Name = "passwordEntry";
+			passwordEntry.Size = new Size(126, 23);
+			passwordEntry.TabIndex = 1;
+			passwordEntry.UseSystemPasswordChar = true;
 			// 
-			// button1
+			// submit
 			// 
-			button1.Location = new Point(456, 272);
-			button1.Margin = new Padding(4, 5, 4, 5);
-			button1.Name = "button1";
-			button1.Size = new Size(107, 38);
-			button1.TabIndex = 2;
-			button1.Text = "Submit";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += button1_Click;
+			submit.Location = new Point(543, 163);
+			submit.Name = "submit";
+			submit.Size = new Size(75, 23);
+			submit.TabIndex = 2;
+			submit.Text = "Submit";
+			submit.UseVisualStyleBackColor = true;
+			submit.Click += submit_Click;
 			// 
-			// button2
+			// signUp
 			// 
-			button2.Location = new Point(613, 272);
-			button2.Margin = new Padding(4, 5, 4, 5);
-			button2.Name = "button2";
-			button2.Size = new Size(107, 38);
-			button2.TabIndex = 3;
-			button2.Text = "Sign Up";
-			button2.UseVisualStyleBackColor = true;
-			button2.Click += button2_Click;
+			signUp.Location = new Point(388, 163);
+			signUp.Name = "signUp";
+			signUp.Size = new Size(75, 23);
+			signUp.TabIndex = 3;
+			signUp.Text = "Sign Up";
+			signUp.UseVisualStyleBackColor = true;
+			signUp.Click += signUp_Click;
 			// 
-			// label1
+			// userName
 			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(456, 108);
-			label1.Margin = new Padding(4, 0, 4, 0);
-			label1.Name = "label1";
-			label1.Size = new Size(99, 25);
-			label1.TabIndex = 4;
-			label1.Text = "Email";
+			userName.AutoSize = true;
+			userName.Location = new Point(388, 63);
+			userName.Name = "userName";
+			userName.Size = new Size(65, 15);
+			userName.TabIndex = 4;
+			userName.Text = "User Name";
 			// 
 			// Password
 			// 
 			Password.AutoSize = true;
-			Password.Location = new Point(456, 205);
-			Password.Margin = new Padding(4, 0, 4, 0);
+			Password.Location = new Point(388, 105);
 			Password.Name = "Password";
-			Password.Size = new Size(87, 25);
+			Password.Size = new Size(57, 15);
 			Password.TabIndex = 5;
 			Password.Text = "Password";
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+			pictureBox1.Location = new Point(0, 12);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(382, 362);
+			pictureBox1.TabIndex = 6;
+			pictureBox1.TabStop = false;
 			// 
 			// Login
 			// 
 			AllowDrop = true;
-			AutoScaleDimensions = new SizeF(10F, 25F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = SystemColors.ActiveCaption;
-			ClientSize = new Size(990, 643);
+			ClientSize = new Size(693, 386);
+			Controls.Add(pictureBox1);
 			Controls.Add(Password);
-			Controls.Add(label1);
-			Controls.Add(button2);
-			Controls.Add(button1);
-			Controls.Add(textBox2);
-			Controls.Add(textBox1);
-			Margin = new Padding(4, 5, 4, 5);
+			Controls.Add(userName);
+			Controls.Add(signUp);
+			Controls.Add(submit);
+			Controls.Add(passwordEntry);
+			Controls.Add(userNameEntry);
 			Name = "Login";
 			Text = "Login";
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
 
 		#endregion
 
-		private TextBox textBox1;
-		private TextBox textBox2;
-		private Button button1;
-		private Button button2;
-		private Label label1;
+		private TextBox userNameEntry;
+		private TextBox passwordEntry;
+		private Button submit;
+		private Button signUp;
+		private Label userName;
 		private Label Password;
+		private PictureBox pictureBox1;
 	}
 }

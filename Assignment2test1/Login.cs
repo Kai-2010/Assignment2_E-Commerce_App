@@ -11,42 +11,38 @@ namespace Assignment2test1
 			InitializeComponent();
 		}
 
-		private void textBox1_TextChanged(object sender, EventArgs e)
+        // When the user clicks on the submit button validations are done to see if all the required details are entered.
+        // A linq query, based on the textbox entries by the userm is used to traverse through the HealthDB database
+		// and check if the credentials match, logging into the dashboard as a user if successful.
+        // If the login is not successful a message box is shown and prompts the user to reenter their details.
+        private void submit_Click(object sender, EventArgs e)
 		{
-
+			Customer newCustomer;
+			using (var context = new HealthContext())
+			{
+				newCustomer = context.Customers.FirstOrDefault(c => c.email == userNameEntry.Text && c.password == passwordEntry.Text);
+			}
+			if (newCustomer != null)
+			{
+				Hide();
+				new DashBoard(newCustomer).Show();
+			}
+			else
+			{
+				MessageBox.Show("Incorrect email or password.", "Error", MessageBoxButtons.OK);
+				userNameEntry.Clear();
+				passwordEntry.Clear();
+				userNameEntry.Focus();
+			}
 		}
-
-		private void textBox2_TextChanged(object sender, EventArgs e)
+			
+		// Displays the Registration form when the signup button is clicked.
+		// This is achieved by hiding the login form and displaying the registration form.
+		private void signUp_Click(object sender, EventArgs e)
 		{
-
+			Hide();
+			new Registration().Show();
 		}
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Customer customer;
-            using (var context = new HealthContext())
-            {
-                customer = context.Customers.FirstOrDefault(c => c.email == textBox1.Text && c.password == textBox2.Text);
-            }
-            if (customer != null)
-            {
-                Hide();
-                new DashBoard(customer).Show();
-            }
-            else
-            {
-                MessageBox.Show("Incorrect email or password.", "Error", MessageBoxButtons.OK);
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox1.Focus();
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Hide();
-            new Registration().Show();
-        }
-    }
+	}
 }
 

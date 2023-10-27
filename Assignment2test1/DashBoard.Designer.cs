@@ -36,16 +36,15 @@
 			healthMetrics = new LinkLabel();
 			nutritionInformation = new LinkLabel();
 			modifyDetails = new LinkLabel();
-			label5 = new Label();
+			Title = new Label();
 			SDGInformation = new LinkLabel();
 			SuspendLayout();
 			// 
 			// communityForum
 			// 
-			communityForum.Location = new Point(854, 20);
-			communityForum.Margin = new Padding(4, 5, 4, 5);
+			communityForum.Location = new Point(598, 12);
 			communityForum.Name = "communityForum";
-			communityForum.Size = new Size(201, 38);
+			communityForum.Size = new Size(141, 23);
 			communityForum.TabIndex = 7;
 			communityForum.Text = "Community Forum";
 			communityForum.UseVisualStyleBackColor = true;
@@ -53,10 +52,9 @@
 			// 
 			// getNews
 			// 
-			getNews.Location = new Point(923, 313);
-			getNews.Margin = new Padding(4, 5, 4, 5);
+			getNews.Location = new Point(647, 136);
 			getNews.Name = "getNews";
-			getNews.Size = new Size(107, 38);
+			getNews.Size = new Size(75, 23);
 			getNews.TabIndex = 10;
 			getNews.Text = "Get News";
 			getNews.UseVisualStyleBackColor = true;
@@ -65,103 +63,98 @@
 			// newsLinkLabel
 			// 
 			newsLinkLabel.AutoSize = true;
-			newsLinkLabel.Location = new Point(17, 320);
-			newsLinkLabel.Margin = new Padding(4, 0, 4, 0);
-			newsLinkLabel.MaximumSize = new Size(1429, 1667);
+			newsLinkLabel.Location = new Point(12, 192);
+			newsLinkLabel.MaximumSize = new Size(1000, 1000);
 			newsLinkLabel.Name = "newsLinkLabel";
-			newsLinkLabel.Size = new Size(127, 25);
+			newsLinkLabel.Size = new Size(0, 15);
 			newsLinkLabel.TabIndex = 11;
-			newsLinkLabel.TabStop = true;
-			newsLinkLabel.Text = "NewsLinkLabel";
 			newsLinkLabel.LinkClicked += NewsLinkLabel_LinkClicked;
 			// 
 			// logout
 			// 
-			logout.Location = new Point(34, 20);
+			logout.Location = new Point(24, 12);
+			logout.Margin = new Padding(2);
 			logout.Name = "logout";
-			logout.Size = new Size(106, 45);
+			logout.Size = new Size(74, 27);
 			logout.TabIndex = 12;
 			logout.Text = "Logout";
 			logout.UseVisualStyleBackColor = true;
-			logout.Click += button6_Click;
+			logout.Click += logout_Click;
 			// 
 			// healthGoals
 			// 
 			healthGoals.AutoSize = true;
-			healthGoals.Location = new Point(304, 125);
-			healthGoals.Margin = new Padding(4, 0, 4, 0);
+			healthGoals.Location = new Point(213, 75);
 			healthGoals.Name = "healthGoals";
-			healthGoals.Size = new Size(222, 25);
+			healthGoals.Size = new Size(146, 15);
 			healthGoals.TabIndex = 16;
 			healthGoals.TabStop = true;
 			healthGoals.Text = "More Info on Health Goals";
-			healthGoals.LinkClicked += linkLabel2_LinkClicked;
+			healthGoals.LinkClicked += healthGoal_LinkClicked;
 			// 
 			// healthMetrics
 			// 
 			healthMetrics.AutoSize = true;
-			healthMetrics.Location = new Point(-3, 125);
-			healthMetrics.Margin = new Padding(4, 0, 4, 0);
+			healthMetrics.Location = new Point(-2, 75);
 			healthMetrics.Name = "healthMetrics";
-			healthMetrics.Size = new Size(296, 25);
+			healthMetrics.Size = new Size(198, 15);
 			healthMetrics.TabIndex = 17;
 			healthMetrics.TabStop = true;
 			healthMetrics.Text = "More information on Health Metrics";
-			healthMetrics.LinkClicked += linkLabel3_LinkClicked;
+			healthMetrics.LinkClicked += healthMetrics_LinkClicked;
 			// 
 			// nutritionInformation
 			// 
 			nutritionInformation.AutoSize = true;
-			nutritionInformation.Location = new Point(549, 125);
-			nutritionInformation.Margin = new Padding(4, 0, 4, 0);
+			nutritionInformation.Location = new Point(384, 75);
 			nutritionInformation.Name = "nutritionInformation";
-			nutritionInformation.Size = new Size(181, 25);
+			nutritionInformation.Size = new Size(121, 15);
 			nutritionInformation.TabIndex = 18;
 			nutritionInformation.TabStop = true;
 			nutritionInformation.Text = "Nutrition Information";
-			nutritionInformation.LinkClicked += linkLabel4_LinkClicked;
+			nutritionInformation.LinkClicked += nutritionInformation_LinkClicked;
 			// 
 			// modifyDetails
 			// 
 			modifyDetails.AutoSize = true;
-			modifyDetails.Location = new Point(774, 125);
-			modifyDetails.Margin = new Padding(4, 0, 4, 0);
+			modifyDetails.Location = new Point(542, 75);
 			modifyDetails.Name = "modifyDetails";
-			modifyDetails.Size = new Size(127, 25);
+			modifyDetails.Size = new Size(83, 15);
 			modifyDetails.TabIndex = 19;
 			modifyDetails.TabStop = true;
 			modifyDetails.Text = "Modify Details";
-			modifyDetails.LinkClicked += linkLabel5_LinkClicked;
+			modifyDetails.LinkClicked += modifyDetails_LinkClicked;
 			// 
-			// label5
+			// Title
 			// 
-			label5.AutoSize = true;
-			label5.Location = new Point(450, 22);
-			label5.Margin = new Padding(4, 0, 4, 0);
-			label5.Name = "label5";
-			label5.Size = new Size(59, 25);
-			label5.TabIndex = 20;
-			label5.Text = "Name";
+			Title.AutoSize = true;
+			Title.Location = new Point(315, 13);
+			Title.Name = "Title";
+			Title.Size = new Size(39, 15);
+			Title.TabIndex = 20;
+			Title.Text = "Name";
 			// 
 			// SDGInformation
 			// 
 			SDGInformation.AutoSize = true;
 			SDGInformation.LinkBehavior = LinkBehavior.HoverUnderline;
-			SDGInformation.Location = new Point(304, 227);
+			SDGInformation.Location = new Point(213, 136);
+			SDGInformation.Margin = new Padding(2, 0, 2, 0);
 			SDGInformation.Name = "SDGInformation";
-			SDGInformation.Size = new Size(377, 25);
+			SDGInformation.Size = new Size(249, 15);
 			SDGInformation.TabIndex = 21;
 			SDGInformation.TabStop = true;
 			SDGInformation.Text = "Click here to get more information about SDG";
-			SDGInformation.LinkClicked += linkLabel6_LinkClicked;
+			SDGInformation.LinkClicked += SDGInformation_LinkClicked;
 			// 
 			// DashBoard
 			// 
-			AutoScaleDimensions = new SizeF(10F, 25F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1143, 750);
+			BackColor = SystemColors.ActiveCaption;
+			ClientSize = new Size(800, 450);
 			Controls.Add(SDGInformation);
-			Controls.Add(label5);
+			Controls.Add(Title);
 			Controls.Add(modifyDetails);
 			Controls.Add(nutritionInformation);
 			Controls.Add(healthMetrics);
@@ -170,7 +163,6 @@
 			Controls.Add(newsLinkLabel);
 			Controls.Add(getNews);
 			Controls.Add(communityForum);
-			Margin = new Padding(4, 5, 4, 5);
 			Name = "DashBoard";
 			Text = "DashBoard";
 			Load += DashBoard_Load;
@@ -187,7 +179,7 @@
 		private LinkLabel healthMetrics;
 		private LinkLabel nutritionInformation;
 		private LinkLabel modifyDetails;
-		private Label label5;
 		private LinkLabel SDGInformation;
+		private Label Title;
 	}
 }

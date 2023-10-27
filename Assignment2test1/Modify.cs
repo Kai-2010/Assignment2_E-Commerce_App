@@ -4,7 +4,6 @@ using System.IO;
 using System.Reflection;
 using System.Reflection.PortableExecutable;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Assignment2test1
 {
@@ -23,66 +22,52 @@ namespace Assignment2test1
             Add.Text = loggedInCustomer.address;
             Password.Text = loggedInCustomer.password;
             RepeatPassword.Text = loggedInCustomer.password;
-            gender.Text = loggedInCustomer.sex;
+            gender.Text = loggedInCustomer.gender;
+            heartAttackCheckBox.Checked = loggedInCustomer.heartAttack;
+            diabetesCheckBox.Checked = loggedInCustomer.diabetes;
+            chronicDiseaseCheckBox.Checked = loggedInCustomer.chronicDisease;
+            otherCheckBox.Checked = loggedInCustomer.other;
         }
 
+        // Verifies that all the text boxes have valid inputs by checking if an error message was generated (shows the message if true).
+        // If validated successfully, the details of the customer are modified and changes are saved to the database, then the user is returned to the dashboard.
         private void submit_Click(object sender, EventArgs e)
         {
             string errorMessage = verifyAll();
-            Customer customer;
-
-            using (var context = new HealthContext())
-            {
-                customer = context.Customers.FirstOrDefault(c => c.email == Email.Text);
-            }
 
             if (errorMessage != "")
             {
                 MessageBox.Show(errorMessage);
             }
-            else if (customer != null && Email.Text != loggedInCustomer.email)
-            {
-                MessageBox.Show("Email Id is not available", "Please enter another email Id", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                Email.Text = loggedInCustomer.email;
-                Email.Focus();
-            }
             else
             {
-                loggedInCustomer.email = Email.Text;
                 loggedInCustomer.phoneNumber = phone.Text;
                 loggedInCustomer.address = Add.Text;
                 loggedInCustomer.password = Password.Text;
+                loggedInCustomer.heartAttack = heartAttackCheckBox.Checked;
+                loggedInCustomer.diabetes = diabetesCheckBox.Checked;
+                loggedInCustomer.chronicDisease = chronicDiseaseCheckBox.Checked;
+                loggedInCustomer.other = otherCheckBox.Checked;
                 utility.updateCustomer(loggedInCustomer);
                 Close();
                 new DashBoard(loggedInCustomer).Show();
             }
         }
 
+        //Calls all the verification methods in one method, returns an error message (will be blank if verified successfully).
         private string verifyAll()
         {
             string errorMessage = "";
-            errorMessage = verifyEmail(errorMessage);
             errorMessage = verifyPhone(errorMessage);
             errorMessage = verifyAddress(errorMessage);
             errorMessage = verifyPassword(errorMessage);
             return errorMessage;
         }
 
-        private string verifyEmail(string errorMessage)
-        {
-            if (utility.isEmailValid(Email.Text) == false)
-            {
-                errorMessage += "Please enter a valid email\n";
-                Email.Text = loggedInCustomer.email;
-            }
-            else if (string.IsNullOrEmpty(Email.Text))
-            {
-                errorMessage += "Please fill in your email\n";
-                Email.Text = loggedInCustomer.email;
-            }
-            return errorMessage;
-        }
-
+        // The method is used to verify the phone number of a user.
+        // When called, a method from the utility class is used to validate the phone number, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyPhone(string errorMessage)
         {
             if (utility.phoneValidation(phone.Text) == false || utility.phoneValidation1(phone.Text) == false)
@@ -98,6 +83,9 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the address of a user.
+        // When called, a check is completed to ensure the user does not leave the textBox blank, adding an error message to the string if invalid.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyAddress(string errorMessage)
         {
             if (string.IsNullOrEmpty(Add.Text))
@@ -108,6 +96,11 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // The method is used to verify the password of a user.
+        // When called, a method from the utility class is used to validate the password, adding an error message to the string if invalid.
+        // A second check is completed to ensure the user does not leave the textBox blank, also adding an error message to the string if invalid.
+        // A third check compares that password and repeat password text boxes and generates an error message if they do not match.
+        // The method then returns an empty string if valid, or error message if invalid.
         private string verifyPassword(string errorMessage)
         {
             if (string.IsNullOrEmpty(Password.Text))
@@ -129,12 +122,13 @@ namespace Assignment2test1
             return errorMessage;
         }
 
+        // Cancels registration and sends the user back to the dashboard.
         private void Cancel_Click(object sender, EventArgs e)
-		{
-			this.Close();
-			new DashBoard(loggedInCustomer).Show();
-		}
-	}
+        {
+            this.Close();
+            new DashBoard(loggedInCustomer).Show();
+        }
+    }
 }
 
 

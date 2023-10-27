@@ -28,78 +28,72 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			label1 = new Label();
-			button1 = new Button();
-			button2 = new Button();
+			title = new Label();
+			newPost = new Button();
+			cancel = new Button();
 			panel2 = new Panel();
 			flowLayoutPanel1 = new FlowLayoutPanel();
 			panel2.SuspendLayout();
 			SuspendLayout();
 			// 
-			// label1
+			// title
 			// 
-			label1.AutoSize = true;
-			label1.Location = new Point(466, 5);
-			label1.Margin = new Padding(4, 0, 4, 0);
-			label1.Name = "label1";
-			label1.Size = new Size(209, 25);
-			label1.TabIndex = 6;
-			label1.Text = "Community Forum Posts";
+			title.AutoSize = true;
+			title.Location = new Point(326, 3);
+			title.Name = "title";
+			title.Size = new Size(140, 15);
+			title.TabIndex = 6;
+			title.Text = "Community Forum Posts";
 			// 
-			// button1
+			// newPost
 			// 
-			button1.Location = new Point(1229, 768);
-			button1.Margin = new Padding(4, 5, 4, 5);
-			button1.Name = "button1";
-			button1.Size = new Size(107, 38);
-			button1.TabIndex = 7;
-			button1.Text = "New Post";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click +=Submit_Click_1;
+			newPost.Location = new Point(860, 461);
+			newPost.Name = "newPost";
+			newPost.Size = new Size(75, 23);
+			newPost.TabIndex = 7;
+			newPost.Text = "New Post";
+			newPost.UseVisualStyleBackColor = true;
+			newPost.Click += Submit_Click_1;
 			// 
-			// button2
+			// cancel
 			// 
-			button2.Location = new Point(4, 768);
-			button2.Margin = new Padding(4, 5, 4, 5);
-			button2.Name = "button2";
-			button2.Size = new Size(107, 38);
-			button2.TabIndex = 8;
-			button2.Text = "Cancel";
-			button2.UseVisualStyleBackColor = true;
-			button2.Click += Cancel_Click_1;
+			cancel.Location = new Point(3, 461);
+			cancel.Name = "cancel";
+			cancel.Size = new Size(75, 23);
+			cancel.TabIndex = 8;
+			cancel.Text = "Cancel";
+			cancel.UseVisualStyleBackColor = true;
+			cancel.Click += Cancel_Click_1;
 			// 
 			// panel2
 			// 
 			panel2.AutoScroll = true;
-			panel2.Controls.Add(button2);
-			panel2.Controls.Add(button1);
-			panel2.Controls.Add(label1);
-			panel2.Location = new Point(3, 20);
-			panel2.Margin = new Padding(4, 5, 4, 5);
+			panel2.Controls.Add(cancel);
+			panel2.Controls.Add(newPost);
+			panel2.Controls.Add(title);
+			panel2.Location = new Point(2, 12);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(1340, 812);
+			panel2.Size = new Size(938, 487);
 			panel2.TabIndex = 0;
 			// 
 			// flowLayoutPanel1
 			// 
 			flowLayoutPanel1.AutoScroll = true;
 			flowLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-			flowLayoutPanel1.Location = new Point(3, 55);
-			flowLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+			flowLayoutPanel1.Location = new Point(2, 33);
 			flowLayoutPanel1.Name = "flowLayoutPanel1";
-			flowLayoutPanel1.Size = new Size(1321, 723);
+			flowLayoutPanel1.Size = new Size(925, 434);
 			flowLayoutPanel1.TabIndex = 9;
 			// 
 			// CommunityForum
 			// 
-			AutoScaleDimensions = new SizeF(10F, 25F);
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
 			AutoScroll = true;
 			AutoSize = true;
-			ClientSize = new Size(1406, 852);
+			ClientSize = new Size(984, 511);
 			Controls.Add(flowLayoutPanel1);
 			Controls.Add(panel2);
-			Margin = new Padding(4, 5, 4, 5);
 			Name = "CommunityForum";
 			Text = "Posts";
 			Load += posts_Load;
@@ -111,9 +105,9 @@
 		#endregion
 		private TextBox textBox2;
 		private Panel panel1;
-		private Label label1;
-		private Button button1;
-		private Button button2;
+		private Label title;
+		private Button newPost;
+		private Button cancel;
 		private Panel panel2;
 		private FlowLayoutPanel flowLayoutPanel1;
 	}

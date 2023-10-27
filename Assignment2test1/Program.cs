@@ -1,4 +1,3 @@
-
 namespace Assignment2test1
 {
 	internal static class Program
@@ -9,9 +8,9 @@ namespace Assignment2test1
 		[STAThread]
 		static void Main()
 		{
+			//utility.ensureDBCreated();
 			// To customize application configuration such as set high DPI settings or default font,
 			// see https://aka.ms/applicationconfiguration.
-			//utility.ensureDBCreated();
 			ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
