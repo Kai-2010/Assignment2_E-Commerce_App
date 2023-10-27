@@ -1,4 +1,4 @@
-# Assignment2_E-Commerce_App
+# Assignment2_Health_App
 ## HealthDB data entries
 | CustomerID | FirstName | LastName | Address | Email | PhoneNumber | Password | Sex | HeartAttack | Diabetes | ChronicDisease | Other |
 |------------|-----------|----------|---------|-------|-------------|----------|-----|-------------|----------|----------------|-------|
