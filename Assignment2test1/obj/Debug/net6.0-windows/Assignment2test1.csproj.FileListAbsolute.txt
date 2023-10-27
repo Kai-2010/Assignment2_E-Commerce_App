@@ -229,3 +229,6 @@ C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\obj\Debug
 C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.pdb
 C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.genruntimeconfig.cache
 C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\obj\Debug\net6.0-windows\ref\Assignment2test1.dll
+C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.HealthGraphs.resources
+C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\alex\Documents\GitHub\Assignment2_Health_App\Assignment2test1\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll

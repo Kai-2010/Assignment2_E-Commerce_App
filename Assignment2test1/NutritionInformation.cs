@@ -238,16 +238,16 @@ namespace Assignment2test1
                 if (ind1 == -1)
                 {
                     DialyExerciseInfo di = new DialyExerciseInfo(txtb7.Text);
-                    Exercise exe = new Exercise(txtb8.Text, double.Parse(txtb9.Text));
+                    Exercise exe = new Exercise(utility.RemoveWhitespace(txtb8.Text), double.Parse(txtb9.Text));
                     di.dailyExer.Add(exe);
                     loggedInHealth.lExercise.Add(di);
                 }
                 else
                 {
-                    int ind2 = FindRecord(loggedInHealth.lExercise[ind1].dailyExer, txtb8.Text);
+                    int ind2 = FindRecord(loggedInHealth.lExercise[ind1].dailyExer, utility.RemoveWhitespace(txtb8.Text));
                     if (ind2 == -1)
                     {
-                        Exercise exe = new Exercise(txtb8.Text, double.Parse(txtb9.Text));
+                        Exercise exe = new Exercise(utility.RemoveWhitespace(txtb8.Text), double.Parse(txtb9.Text));
                         loggedInHealth.lExercise[ind1].dailyExer.Add(exe);
                     }
                     else

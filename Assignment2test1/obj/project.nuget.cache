@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8SbEqu66FVH0Nb5oaQSGjbPVppWozH2Z4OTprL6M+oPHzPkzutNT7hjMgIDpCwuanUA4Jc9zm41FfeJ6KAu+hg==",
+  "dgSpecHash": "txqTxw5cEEhNz58php4LBYxI6lQTlhHjJ3Sf7IypSSxEEQlIGJKwggeSViB1T2Woa8x0qGmxz7m5ro8Jh9HMOg==",
   "success": true,
   "projectFilePath": "C:\\Users\\alex\\Documents\\GitHub\\Assignment2_Health_App\\Assignment2test1\\Assignment2test1.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,8 @@
     "C:\\Users\\alex\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\alex\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\alex\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\alex\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
+    "C:\\Users\\alex\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
+    "C:\\Users\\alex\\.nuget\\packages\\winforms.datavisualization\\1.9.0\\winforms.datavisualization.1.9.0.nupkg.sha512"
   ],
   "logs": [
     {

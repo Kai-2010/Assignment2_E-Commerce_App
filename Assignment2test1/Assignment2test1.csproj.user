@@ -4,6 +4,9 @@
     <Compile Update="HealthGoalsForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="HealthGraphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="HealthMetrics.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.13",
           "NewsAPI": "0.7.0",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.3",
+          "WinForms.DataVisualization": "1.9.0"
         },
         "runtime": {
           "Assignment2test1.dll": {}
@@ -399,6 +400,18 @@
             "fileVersion": "7.0.22.51805"
           }
         }
+      },
+      "WinForms.DataVisualization/1.9.0": {
+        "runtime": {
+          "lib/net6.0-windows7.0/WinForms.DataVisualization.Utilities.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.9.0.0"
+          },
+          "lib/net6.0-windows7.0/WinForms.DataVisualization.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.9.0.0"
+          }
+        }
       }
     }
   },
@@ -596,6 +609,13 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "WinForms.DataVisualization/1.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lRhRPS40V3o5dY38NwaIZyOPrD+bbFq+UjNCa/eAucMICrSFVUE9rO6H2G73xx65mZ94Q7lYw4BSaZRPlcxhxQ==",
+      "path": "winforms.datavisualization/1.9.0",
+      "hashPath": "winforms.datavisualization.1.9.0.nupkg.sha512"
     }
   }
 }
