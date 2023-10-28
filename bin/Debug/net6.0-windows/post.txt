@@ -1,1 +1,3 @@
-Test|Test1|Test2|Test3|Test4|Test5|Test6|Test8|Test9|Test20|Hello|Hello2||Time pass|Help|hello world|Test3|ghjg|new post|eee
+What is the primary objective of SDG|SDG 3 aims to promote healthy living|It targets to reduce dieases
+How can countries work towards achieving SDG 3|They try to improve healthcare|They promote health lifestyle
+What are the key indicators of progress for SDG 3|reduce mortality rates|increase life expentacy|Less number of death due to cardiac arrest
