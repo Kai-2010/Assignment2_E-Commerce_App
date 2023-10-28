@@ -2,7 +2,7 @@
 ## HealthDB data entries
 | CustomerID | FirstName | LastName | Address | Email | PhoneNumber | Password | Sex | HeartAttack | Diabetes | ChronicDisease | Other |
 |------------|-----------|----------|---------|-------|-------------|----------|-----|-------------|----------|----------------|-------|
-| 0	| Peter	| Pan	  | 12 Main Street | peter.pan@hotmail.com	| 0490564321 | Password123 | M | 1 | 1 | 1 | 1 |
+| 0	| Peter	| Pan	  | 12 Main Street | peter.pan@hotmail.com	| 0490564321 | Password123# | M | 1 | 1 | 1 | 1 |
 | 1	| Tammy	| Tammy	| 12 A Street    | tammy@tammy.com	      |	0456789010 | 123456	     | F | 0 | 0 | 0 | 0 |
 | 2	| uyug	| ygug	| 12 wat		     | yy@yy.com		          | 0424936302 | 1234567aA*	 | P | 0 | 1 | 0 | 0 |
 | 3	| test	| test	| 12 Tea Street	 | test.test@gmail.com	  | 0490765432 | 1234567Aa@	 | F | 0 | 0 | 0 | 0 |
