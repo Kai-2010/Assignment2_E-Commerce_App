@@ -8,6 +8,7 @@
 		public Registration()
 		{
 			InitializeComponent();
+
 		}
 
 		// First attempts to return a customer from the database using the text in the email and password text boxes.
@@ -186,23 +187,23 @@
             }
             return errorMessage;
         }
-        // The method sets the gender of the user as Male
+        // used to track the gender of the user
         private void maleRadioButton_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "M";
 		}
-		// The method sets the gender of the user as Female
+		// used to track the gender of the user
 		private void femaleRadioButton_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "F";
 		}
-		// The method sets the gender of the user as who does not Prefer To Say
+		// used to track the gender of the user
 		private void preferNotToSayRadioButton_CheckedChanged(object sender, EventArgs e)
 		{
 			gender = "P";
 		}
 
-		// The method Cancels registration and sends the user back to the login page.
+		// Cancels registration and sends the user back to the login page.
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			Hide();

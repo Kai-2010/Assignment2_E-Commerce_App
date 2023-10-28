@@ -14,7 +14,7 @@ namespace Assignment2test1
 			ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login()); //Invokes the Login form which is the starting point for the application
+            Application.Run(new Login());
 		}
 	}
 }

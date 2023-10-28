@@ -1,31 +1,45 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics.Metrics;
+using System.Drawing;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
+using NewsAPI;
+using NewsAPI.Models;
+using NewsAPI.Constants;
+using System;
+
+
+
 namespace Assignment2test1
 {
     public partial class DashBoard : Form
     {
         Customer loggedInCustomer;
-        
         public DashBoard(Customer loggedInCustomer)
         {
             InitializeComponent();
             this.loggedInCustomer = loggedInCustomer;
         }
-
         public void DashBoard_Load(object sender, EventArgs e)
         {
             Title.Text = "Welcome " + loggedInCustomer.firstName;
         }
 
-        //Invokes the Community Forum form where posts and replies are displayed
         private void communityForum_Click(object sender, EventArgs e)
         {
             Hide();
             new CommunityForum(loggedInCustomer).Show();
         }
-		//Invokes the API from newsapi.org from which top 15 headlines about health for australia is displayed
-        //AN API Key is passed as a parameter in the API call. The API is called over https.
-        //I had signed up on newsapi.org to get the API Key that i am using in the api call
-		private async void getNews_Click(object sender, EventArgs e)
+
+        private async void getNews_Click(object sender, EventArgs e)
         {
             var apiUrl = "";
             int index = 0;
@@ -49,7 +63,7 @@ namespace Assignment2test1
                     var articles = responseData["articles"];
                     newsLinkLabel.Text = "";
 
-                    // Add links to the LinkLabel. Maximum of 15 articles being displayed on the screen
+                    // Add links to the LinkLabel. Maximum of 15 articles
                     for (int i = 0; i < 15; i++)
                     {
                         var article = articles[i];
@@ -72,7 +86,6 @@ namespace Assignment2test1
             }
         }
 
-        //This is invoked when a link in the above results is clicked by the user. If the link is a valid and well formed url, the link is opened up 
         private void NewsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = e.Link.LinkData as string;
@@ -88,43 +101,47 @@ namespace Assignment2test1
             }
         }
 
-		// This function takes teh user back to the login page
-		private void logout_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
             Hide();
             new Login().Show();
 
         }
-		// This function takes the user to the health goal page
-		private void healthGoal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            new HealthGoalsForm(loggedInCustomer).ShowDialog();
-        }
-		// This function takes the user to the health metrics page
-		private void healthMetrics_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            new HealthMetrics(loggedInCustomer).ShowDialog();
-        }
-		// This function takes the user to the nutrition page
-		private void nutritionInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            new NutritionInformation(loggedInCustomer).ShowDialog();
-        }
 
-		// This function takes the user to the modify page
-		private void modifyDetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void submit_Click(object sender, EventArgs e)
         {
             Hide();
             new Modify(loggedInCustomer).Show();
         }
-		// This function opens a url to display health information
-		private void SDGInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void healthGoal_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new HealthGoalsForm(loggedInCustomer).ShowDialog();
+        }
+
+        private void healthMetrics_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new HealthMetrics(loggedInCustomer).ShowDialog();
+        }
+
+        private void nutritionInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new NutritionInformation(loggedInCustomer).ShowDialog();
+        }
+
+        private void modifyDetails_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            new Modify(loggedInCustomer).Show();
+        }
+
+        private void SDGInformation_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = "https://sdgs.un.org/goals";
             System.Diagnostics.Process.Start("cmd", $"/c start {url}");
         }
-		// This function takes the user with health graphs
-		private void HealthGraph_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void HealthGraph_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new HealthGraphs(loggedInCustomer).ShowDialog();
         }

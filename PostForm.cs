@@ -7,21 +7,18 @@
 		List<Customer> listOfCustomers = new List<Customer>();
 		List<Post> postsAndReplies = new List<Post>();
 		Post newPost = new Post();
-		//The method is invoked on loading the form
 		public PostForm(Customer loggedInCustomer, List<Post> postsAndReplies)
 		{
 			InitializeComponent();
 			this.loggedInCustomer = loggedInCustomer;
 			this.postsAndReplies= postsAndReplies;
 		}
-		
-		// The method saves the post written by the user to the newPost object
+
 		private void post_TextChanged(object sender, EventArgs e)
 		{
 			newPost.post = postBox.Text;
 		}
-		
-		// The method saves the post to the postAndReplies List and then saves the same to the "post.txt" file
+
 		private void post_Click(object sender, EventArgs e)
 		{
 			string contentToSaveString = "";
@@ -37,13 +34,21 @@
 				}
 				contentToSave.Add(contentToSaveString);	
 			}
-			File.WriteAllLines("post.txt",contentToSave);
-			MessageBox.Show("Message successfully posted");
-			Hide();
-			new DashBoard(loggedInCustomer).Show();
+			File.WriteAllLines("post - Copy - Copy.txt",contentToSave);
+			DialogResult dialogResult = MessageBox.Show("Post something else", "Post Content", MessageBoxButtons.YesNo);
+			if (dialogResult == DialogResult.Yes)
+			{
+				postBox.Clear();
+				postBox.Focus();
+				newPost.post = postBox.Text;
+			}
+			else
+			{
+				Hide();
+				new DashBoard(loggedInCustomer).Show();
+			}
 		}
 
-		// The method takes the user back to the community forum page when the user clicks on the cancel button
 		private void Cancel_Click(object sender, EventArgs e)
 		{
 			Hide();

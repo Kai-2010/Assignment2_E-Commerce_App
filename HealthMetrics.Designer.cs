@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HealthMetrics));
             label1 = new Label();
             groupBox1 = new GroupBox();
             rad3 = new RadioButton();
@@ -44,9 +43,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(47, 31);
+            label1.Location = new Point(25, 17);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(73, 28);
+            label1.Size = new Size(38, 15);
             label1.TabIndex = 1;
             label1.Text = "label1";
             // 
@@ -55,9 +55,11 @@
             groupBox1.Controls.Add(rad3);
             groupBox1.Controls.Add(rad2);
             groupBox1.Controls.Add(rad1);
-            groupBox1.Location = new Point(47, 85);
+            groupBox1.Location = new Point(25, 46);
+            groupBox1.Margin = new Padding(2, 2, 2, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(266, 333);
+            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Size = new Size(143, 178);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Health Type";
@@ -65,9 +67,10 @@
             // rad3
             // 
             rad3.AutoSize = true;
-            rad3.Location = new Point(40, 243);
+            rad3.Location = new Point(22, 130);
+            rad3.Margin = new Padding(2, 2, 2, 2);
             rad3.Name = "rad3";
-            rad3.Size = new Size(139, 32);
+            rad3.Size = new Size(77, 19);
             rad3.TabIndex = 2;
             rad3.TabStop = true;
             rad3.Text = "HeartRate";
@@ -77,9 +80,10 @@
             // rad2
             // 
             rad2.AutoSize = true;
-            rad2.Location = new Point(40, 160);
+            rad2.Location = new Point(22, 86);
+            rad2.Margin = new Padding(2, 2, 2, 2);
             rad2.Name = "rad2";
-            rad2.Size = new Size(181, 32);
+            rad2.Size = new Size(100, 19);
             rad2.TabIndex = 1;
             rad2.TabStop = true;
             rad2.Text = "BloodPressure";
@@ -89,9 +93,10 @@
             // rad1
             // 
             rad1.AutoSize = true;
-            rad1.Location = new Point(40, 75);
+            rad1.Location = new Point(22, 40);
+            rad1.Margin = new Padding(2, 2, 2, 2);
             rad1.Name = "rad1";
-            rad1.Size = new Size(110, 32);
+            rad1.Size = new Size(63, 19);
             rad1.TabIndex = 0;
             rad1.TabStop = true;
             rad1.Text = "Weight";
@@ -104,33 +109,36 @@
             dgv.AllowUserToDeleteRows = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv.Location = new Point(358, 98);
+            dgv.Location = new Point(193, 52);
+            dgv.Margin = new Padding(2, 2, 2, 2);
             dgv.Name = "dgv";
             dgv.ReadOnly = true;
             dgv.RowHeadersWidth = 72;
             dgv.RowTemplate.Height = 36;
-            dgv.Size = new Size(476, 320);
+            dgv.Size = new Size(256, 171);
             dgv.TabIndex = 3;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(898, 98);
+            pictureBox1.Image = Properties.Resources.pic2;
+            pictureBox1.Location = new Point(484, 52);
+            pictureBox1.Margin = new Padding(2, 2, 2, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(320, 320);
+            pictureBox1.Size = new Size(172, 171);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // HealthMetrics
             // 
-            AutoScaleDimensions = new SizeF(13F, 28F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1266, 447);
+            ClientSize = new Size(682, 239);
             Controls.Add(pictureBox1);
             Controls.Add(dgv);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "HealthMetrics";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HealthMetrics";

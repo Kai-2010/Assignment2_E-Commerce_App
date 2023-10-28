@@ -1,10 +1,16 @@
-﻿namespace Assignment2test1
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
+using System.Reflection.PortableExecutable;
+using System.Windows.Forms;
+
+namespace Assignment2test1
 {
+
 	public partial class Modify : Form
 	{
 		Customer loggedInCustomer;
-        // loads the relevant details for the customer logged in.
-        // the details are loaded to the individual text boxes so that validations can be carried out
 		public Modify(Customer loggedInCustomer)
 		{
             InitializeComponent();
@@ -68,17 +74,13 @@
             {
                 errorMessage += "Please enter a valid phone number\n";
                 phone.Text = loggedInCustomer.phoneNumber;
-				phone.Clear();
-				phone.Focus();
-			}
-			else if (string.IsNullOrEmpty(phone.Text))
+            }
+            else if (string.IsNullOrEmpty(phone.Text))
             {
                 errorMessage += "Please fill in your phone number\n";
                 phone.Text = loggedInCustomer.phoneNumber;
-				phone.Clear();
-				phone.Focus();
-			}
-			return errorMessage;
+            }
+            return errorMessage;
         }
 
         // The method is used to verify the address of a user.
@@ -90,10 +92,8 @@
             {
                 errorMessage += "Please fill in your address\n";
                 Add.Text = loggedInCustomer.address;
-				Add.Clear();
-				Add.Focus();
-			}
-			return errorMessage;
+            }
+            return errorMessage;
         }
 
         // The method is used to verify the password of a user.
@@ -107,27 +107,18 @@
             {
                 errorMessage += "Please fill in your password\n";
                 Password.Text = loggedInCustomer.password;
-                Password.Clear();
-				RepeatPassword.Clear();
-				Password.Focus();
-			}
+            }
             else if (utility.isPasswordValid(Password.Text) == false)
             {
                 errorMessage += "Please fill a valid password\n";
                 Password.Text = loggedInCustomer.password;
-                Password.Clear();
-				RepeatPassword.Clear();
-				Password.Focus();
-			}
+            }
             else if (Password.Text != RepeatPassword.Text)
             {
                 errorMessage += "Reenter passwords. They are not matching\n";
                 Password.Text = loggedInCustomer.password;
                 RepeatPassword.Text = loggedInCustomer.password;
-                Password.Clear();
-                RepeatPassword.Clear();
-				Password.Focus();
-			}
+            }
             return errorMessage;
         }
 
@@ -139,3 +130,6 @@
         }
     }
 }
+
+
+

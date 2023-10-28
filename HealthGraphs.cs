@@ -50,8 +50,14 @@ namespace Assignment2test1
                 {
                     foreach (DialyExerciseInfo.Exercise exercise in dailyExercise.dailyExer)
                     {
-                        ExerciseGraph.Series["Exercise"].Points.AddXY(exercise.Type + " " + dailyExercise.RecordTime, exercise.Amount);
+                        int index = ExerciseGraph.Series["Exercise"].Points.AddY(exercise.Amount);
+                        ExerciseGraph.Series["Exercise"].Points[index].Label = exercise.Type + " " + dailyExercise.RecordTime;
                     }
+                }
+
+                foreach (DataPoint p in ExerciseGraph.Series["Exercise"].Points)
+                {
+                    p.Label += "\n(#PERCENT)";
                 }
             }
         }

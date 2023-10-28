@@ -53,7 +53,7 @@
 			newPost.TabIndex = 7;
 			newPost.Text = "New Post";
 			newPost.UseVisualStyleBackColor = true;
-			newPost.Click += newPost_Click_1;
+			newPost.Click += Submit_Click_1;
 			// 
 			// cancel
 			// 

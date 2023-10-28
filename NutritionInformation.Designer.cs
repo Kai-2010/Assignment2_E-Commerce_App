@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NutritionInformation));
             label1 = new Label();
             groupBox1 = new GroupBox();
             txtb4 = new TextBox();
@@ -89,9 +88,9 @@
             groupBox1.Controls.Add(txtb1);
             groupBox1.Controls.Add(label2);
             groupBox1.Location = new Point(22, 54);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(275, 227);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
@@ -100,7 +99,7 @@
             // txtb4
             // 
             txtb4.Location = new Point(123, 147);
-            txtb4.Margin = new Padding(2, 2, 2, 2);
+            txtb4.Margin = new Padding(2);
             txtb4.Name = "txtb4";
             txtb4.ReadOnly = true;
             txtb4.Size = new Size(141, 23);
@@ -119,7 +118,7 @@
             // txtb3
             // 
             txtb3.Location = new Point(123, 109);
-            txtb3.Margin = new Padding(2, 2, 2, 2);
+            txtb3.Margin = new Padding(2);
             txtb3.Name = "txtb3";
             txtb3.ReadOnly = true;
             txtb3.Size = new Size(141, 23);
@@ -138,7 +137,7 @@
             // btn_CalBMI
             // 
             btn_CalBMI.Location = new Point(20, 191);
-            btn_CalBMI.Margin = new Padding(2, 2, 2, 2);
+            btn_CalBMI.Margin = new Padding(2);
             btn_CalBMI.Name = "btn_CalBMI";
             btn_CalBMI.Size = new Size(242, 21);
             btn_CalBMI.TabIndex = 14;
@@ -149,7 +148,7 @@
             // txtb2
             // 
             txtb2.Location = new Point(123, 73);
-            txtb2.Margin = new Padding(2, 2, 2, 2);
+            txtb2.Margin = new Padding(2);
             txtb2.Name = "txtb2";
             txtb2.Size = new Size(141, 23);
             txtb2.TabIndex = 11;
@@ -167,7 +166,7 @@
             // txtb1
             // 
             txtb1.Location = new Point(123, 35);
-            txtb1.Margin = new Padding(2, 2, 2, 2);
+            txtb1.Margin = new Padding(2);
             txtb1.Name = "txtb1";
             txtb1.ReadOnly = true;
             txtb1.Size = new Size(141, 23);
@@ -192,9 +191,9 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label9);
             groupBox2.Location = new Point(22, 299);
-            groupBox2.Margin = new Padding(2, 2, 2, 2);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Padding = new Padding(2);
             groupBox2.Size = new Size(275, 326);
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
@@ -207,7 +206,7 @@
             dgv1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv1.Location = new Point(20, 140);
-            dgv1.Margin = new Padding(2, 2, 2, 2);
+            dgv1.Margin = new Padding(2);
             dgv1.Name = "dgv1";
             dgv1.ReadOnly = true;
             dgv1.RowHeadersWidth = 72;
@@ -218,7 +217,7 @@
             // btn_RecordCaloric
             // 
             btn_RecordCaloric.Location = new Point(20, 100);
-            btn_RecordCaloric.Margin = new Padding(2, 2, 2, 2);
+            btn_RecordCaloric.Margin = new Padding(2);
             btn_RecordCaloric.Name = "btn_RecordCaloric";
             btn_RecordCaloric.Size = new Size(242, 21);
             btn_RecordCaloric.TabIndex = 14;
@@ -229,7 +228,7 @@
             // txtb6
             // 
             txtb6.Location = new Point(123, 65);
-            txtb6.Margin = new Padding(2, 2, 2, 2);
+            txtb6.Margin = new Padding(2);
             txtb6.Name = "txtb6";
             txtb6.Size = new Size(141, 23);
             txtb6.TabIndex = 13;
@@ -237,7 +236,7 @@
             // txtb5
             // 
             txtb5.Location = new Point(123, 30);
-            txtb5.Margin = new Padding(2, 2, 2, 2);
+            txtb5.Margin = new Padding(2);
             txtb5.Name = "txtb5";
             txtb5.ReadOnly = true;
             txtb5.Size = new Size(141, 23);
@@ -276,9 +275,9 @@
             groupBox3.Controls.Add(txtb7);
             groupBox3.Controls.Add(label10);
             groupBox3.Location = new Point(316, 54);
-            groupBox3.Margin = new Padding(2, 2, 2, 2);
+            groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(2, 2, 2, 2);
+            groupBox3.Padding = new Padding(2);
             groupBox3.Size = new Size(312, 571);
             groupBox3.TabIndex = 4;
             groupBox3.TabStop = false;
@@ -291,7 +290,7 @@
             dgv2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv2.Location = new Point(13, 386);
-            dgv2.Margin = new Padding(2, 2, 2, 2);
+            dgv2.Margin = new Padding(2);
             dgv2.Name = "dgv2";
             dgv2.ReadOnly = true;
             dgv2.RowHeadersWidth = 72;
@@ -314,7 +313,7 @@
             cbb.DropDownStyle = ComboBoxStyle.DropDownList;
             cbb.FormattingEnabled = true;
             cbb.Location = new Point(158, 348);
-            cbb.Margin = new Padding(2, 2, 2, 2);
+            cbb.Margin = new Padding(2);
             cbb.Name = "cbb";
             cbb.Size = new Size(145, 23);
             cbb.TabIndex = 21;
@@ -323,7 +322,7 @@
             // btn_RecordExercise
             // 
             btn_RecordExercise.Location = new Point(13, 191);
-            btn_RecordExercise.Margin = new Padding(2, 2, 2, 2);
+            btn_RecordExercise.Margin = new Padding(2);
             btn_RecordExercise.Name = "btn_RecordExercise";
             btn_RecordExercise.Size = new Size(288, 21);
             btn_RecordExercise.TabIndex = 19;
@@ -334,7 +333,7 @@
             // txtb9
             // 
             txtb9.Location = new Point(158, 108);
-            txtb9.Margin = new Padding(2, 2, 2, 2);
+            txtb9.Margin = new Padding(2);
             txtb9.Name = "txtb9";
             txtb9.Size = new Size(145, 23);
             txtb9.TabIndex = 20;
@@ -342,7 +341,7 @@
             // txtb8
             // 
             txtb8.Location = new Point(158, 71);
-            txtb8.Margin = new Padding(2, 2, 2, 2);
+            txtb8.Margin = new Padding(2);
             txtb8.Name = "txtb8";
             txtb8.Size = new Size(145, 23);
             txtb8.TabIndex = 19;
@@ -370,7 +369,7 @@
             // txtb7
             // 
             txtb7.Location = new Point(158, 36);
-            txtb7.Margin = new Padding(2, 2, 2, 2);
+            txtb7.Margin = new Padding(2);
             txtb7.Name = "txtb7";
             txtb7.ReadOnly = true;
             txtb7.Size = new Size(145, 23);
@@ -388,9 +387,9 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = Properties.Resources.pic3;
             pictureBox1.Location = new Point(648, 61);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(566, 564);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -401,13 +400,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1036, 568);
+            ClientSize = new Size(1216, 628);
             Controls.Add(pictureBox1);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "NutritionInformation";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NutritionInformation";
