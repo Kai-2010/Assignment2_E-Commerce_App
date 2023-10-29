@@ -1,29 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+﻿using System.Text.RegularExpressions;
 
 namespace Assignment2test1
 {
 	public class utility
 	{
-
+		// The method ensures the first name and last name entered by the user only contains letter/strings
 		public static bool isNameValid(string Name)
 		{
 			Regex regex = new Regex(@"^[a-z A-Z]+$");
 			return regex.IsMatch(Name);
 		}
+
+		// The method ensures a valid email address tis entered. It checks that the @ symbol and .com is present
 		public static bool isEmailValid(string email)
 		{
 			string regex = @"^[^@\s]+@[^@\s]+\.(com)$";
 			return Regex.IsMatch(email, regex, RegexOptions.IgnoreCase);
 		}
-		// This method ensures the phone number entered is only ten digits long. It returns true or false based on the result 
+		
+		// The method ensures the phone number entered is only ten digits long. It returns true or false based on the result 
 		public static Boolean phoneValidation(string phoneNumber)
 		{
 			if ((phoneNumber.Length != 10))
@@ -33,7 +28,7 @@ namespace Assignment2test1
 			return true;
 		}
 
-		// This method checks to see if the phoneNumber is Australian or not
+		// The method checks to see if the phoneNumber is Australian or not
 		// The phoneNumber string is converted to an integer so that the 1st digit can be matched to check if they start as 0 and 2nd digit is 4
 		public static Boolean phoneValidation1(string phoneNumber)
 		{
@@ -47,7 +42,8 @@ namespace Assignment2test1
 			return false;
 
 		}
-		// sued to check if a password contains ten characters with one capital letter,one special character
+		// The method is used to check if  password is valid.
+		// It checks if a password contains ten characters with one capital letter and one special character 
 		public static Boolean isPasswordValid(string password)
 		{
 			string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*\s).{10,}$";
@@ -61,14 +57,8 @@ namespace Assignment2test1
 				return false;
 			}
 		}
-		// used to read the login file 
-		public static string[] readLoginFile()
-		{
-			string[] loginFile = System.IO.File.ReadAllLines("login.txt");
-			return loginFile;
-		}
-
-		// Takes in a pre-existing customer as a parameter and overwrites its details within the database.
+		
+		// The method takes in a pre-existing customer as a parameter and overwrites its details within the database.
         public static void updateCustomer(Customer customer)
         {
             using (var context = new HealthContext())
@@ -88,7 +78,7 @@ namespace Assignment2test1
             }
         }
 
-		// Takes in a customer as a parameter and then adds it to the Customers entity in HealthDB.
+		// The method takes in a customer as a parameter and then adds it to the Customers entity in HealthDB.
         public static void addCustomer(Customer customer)
         {
             using (var context = new HealthContext())
@@ -97,13 +87,19 @@ namespace Assignment2test1
                 context.SaveChanges();
             }
         }
+
         public static string RemoveWhitespace(string input)
         {
             return new string(input.ToCharArray()
                 .Where(c => !Char.IsWhiteSpace(c))
                 .ToArray());
         }
+
+		//The method reads the posts and its replies to a String array and returns the array
+		public static string [] readPosts()
+		{
+			string[] posts = File.ReadAllLines("post.txt").ToArray();
+			return posts;
+		}
     }
-
 }
-

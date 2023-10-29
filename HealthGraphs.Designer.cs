@@ -51,13 +51,13 @@
             WeightGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             HeartRateGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             BloodPressureGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ExerciseGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             CalorieGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ExerciseGraph = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)WeightGraph).BeginInit();
             ((System.ComponentModel.ISupportInitialize)HeartRateGraph).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BloodPressureGraph).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ExerciseGraph).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CalorieGraph).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ExerciseGraph).BeginInit();
             SuspendLayout();
             // 
             // WeightGraph
@@ -126,48 +126,48 @@
             title3.Text = "Blood Pressure(mmHg averaged)";
             BloodPressureGraph.Titles.Add(title3);
             // 
-            // ExerciseGraph
-            // 
-            chartArea4.Name = "ChartArea1";
-            ExerciseGraph.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            ExerciseGraph.Legends.Add(legend4);
-            ExerciseGraph.Location = new Point(275, 676);
-            ExerciseGraph.Name = "ExerciseGraph";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Exercise";
-            ExerciseGraph.Series.Add(series4);
-            ExerciseGraph.Size = new Size(486, 380);
-            ExerciseGraph.TabIndex = 4;
-            ExerciseGraph.Text = "chart1";
-            title4.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            title4.Name = "Title1";
-            title4.Text = "Total Exercise(as %)";
-            ExerciseGraph.Titles.Add(title4);
-            // 
             // CalorieGraph
             // 
-            chartArea5.Name = "ChartArea1";
-            CalorieGraph.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            CalorieGraph.Legends.Add(legend5);
+            chartArea4.Name = "ChartArea1";
+            CalorieGraph.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            CalorieGraph.Legends.Add(legend4);
             CalorieGraph.Location = new Point(547, 343);
             CalorieGraph.Name = "CalorieGraph";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series5.Legend = "Legend1";
-            series5.Name = "Calories";
-            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-            CalorieGraph.Series.Add(series5);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "Calories";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+            CalorieGraph.Series.Add(series4);
             CalorieGraph.Size = new Size(424, 300);
             CalorieGraph.TabIndex = 3;
             CalorieGraph.Text = "chart3";
+            title4.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            title4.Name = "Title1";
+            title4.Text = "Calories(Cal)";
+            CalorieGraph.Titles.Add(title4);
+            // 
+            // ExerciseGraph
+            // 
+            chartArea5.Name = "ChartArea1";
+            ExerciseGraph.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            ExerciseGraph.Legends.Add(legend5);
+            ExerciseGraph.Location = new Point(275, 676);
+            ExerciseGraph.Name = "ExerciseGraph";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series5.Legend = "Legend1";
+            series5.Name = "Exercise";
+            ExerciseGraph.Series.Add(series5);
+            ExerciseGraph.Size = new Size(486, 380);
+            ExerciseGraph.TabIndex = 4;
+            ExerciseGraph.Text = "chart1";
             title5.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             title5.Name = "Title1";
-            title5.Text = "Calories(Cal)";
-            CalorieGraph.Titles.Add(title5);
+            title5.Text = "Total Exercise(as %)";
+            ExerciseGraph.Titles.Add(title5);
             // 
             // HealthGraphs
             // 
@@ -184,8 +184,8 @@
             ((System.ComponentModel.ISupportInitialize)WeightGraph).EndInit();
             ((System.ComponentModel.ISupportInitialize)HeartRateGraph).EndInit();
             ((System.ComponentModel.ISupportInitialize)BloodPressureGraph).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ExerciseGraph).EndInit();
             ((System.ComponentModel.ISupportInitialize)CalorieGraph).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ExerciseGraph).EndInit();
             ResumeLayout(false);
         }
 
@@ -194,7 +194,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart WeightGraph;
         private System.Windows.Forms.DataVisualization.Charting.Chart HeartRateGraph;
         private System.Windows.Forms.DataVisualization.Charting.Chart BloodPressureGraph;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ExerciseGraph;
         private System.Windows.Forms.DataVisualization.Charting.Chart CalorieGraph;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ExerciseGraph;
     }
 }

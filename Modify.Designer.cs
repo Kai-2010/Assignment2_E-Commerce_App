@@ -59,7 +59,7 @@
 			FN.Name = "FN";
 			FN.ReadOnly = true;
 			FN.Size = new Size(273, 23);
-			FN.TabIndex = 0;
+			FN.TabIndex = 100;
 			FN.TabStop = false;
 			// 
 			// LN
@@ -68,7 +68,7 @@
 			LN.Name = "LN";
 			LN.ReadOnly = true;
 			LN.Size = new Size(273, 23);
-			LN.TabIndex = 1;
+			LN.TabIndex = 101;
 			LN.TabStop = false;
 			// 
 			// Email
@@ -77,7 +77,7 @@
 			Email.Name = "Email";
 			Email.ReadOnly = true;
 			Email.Size = new Size(273, 23);
-			Email.TabIndex = 2;
+			Email.TabIndex = 102;
 			Email.TabStop = false;
 			// 
 			// phone
@@ -85,21 +85,21 @@
 			phone.Location = new Point(340, 122);
 			phone.Name = "phone";
 			phone.Size = new Size(100, 23);
-			phone.TabIndex = 3;
+			phone.TabIndex = 0;
 			// 
 			// Add
 			// 
 			Add.Location = new Point(340, 151);
 			Add.Name = "Add";
 			Add.Size = new Size(273, 23);
-			Add.TabIndex = 4;
+			Add.TabIndex = 1;
 			// 
 			// Password
 			// 
 			Password.Location = new Point(340, 183);
 			Password.Name = "Password";
 			Password.Size = new Size(100, 23);
-			Password.TabIndex = 5;
+			Password.TabIndex = 2;
 			Password.UseSystemPasswordChar = true;
 			// 
 			// RepeatPassword
@@ -107,7 +107,7 @@
 			RepeatPassword.Location = new Point(340, 212);
 			RepeatPassword.Name = "RepeatPassword";
 			RepeatPassword.Size = new Size(100, 23);
-			RepeatPassword.TabIndex = 6;
+			RepeatPassword.TabIndex = 3;
 			RepeatPassword.UseSystemPasswordChar = true;
 			// 
 			// Submit
@@ -126,7 +126,7 @@
 			gender.Name = "gender";
 			gender.ReadOnly = true;
 			gender.Size = new Size(43, 23);
-			gender.TabIndex = 8;
+			gender.TabIndex = 4;
 			// 
 			// label1
 			// 
@@ -235,7 +235,7 @@
 			heartAttackCheckBox.Location = new Point(340, 298);
 			heartAttackCheckBox.Name = "heartAttackCheckBox";
 			heartAttackCheckBox.Size = new Size(92, 19);
-			heartAttackCheckBox.TabIndex = 19;
+			heartAttackCheckBox.TabIndex = 5;
 			heartAttackCheckBox.Text = "Heart Attack";
 			heartAttackCheckBox.UseVisualStyleBackColor = true;
 			// 
@@ -245,7 +245,7 @@
 			diabetesCheckBox.Location = new Point(340, 323);
 			diabetesCheckBox.Name = "diabetesCheckBox";
 			diabetesCheckBox.Size = new Size(71, 19);
-			diabetesCheckBox.TabIndex = 20;
+			diabetesCheckBox.TabIndex = 6;
 			diabetesCheckBox.Text = "Diabetes";
 			diabetesCheckBox.UseVisualStyleBackColor = true;
 			// 
@@ -255,7 +255,7 @@
 			chronicDiseaseCheckBox.Location = new Point(340, 348);
 			chronicDiseaseCheckBox.Name = "chronicDiseaseCheckBox";
 			chronicDiseaseCheckBox.Size = new Size(110, 19);
-			chronicDiseaseCheckBox.TabIndex = 21;
+			chronicDiseaseCheckBox.TabIndex = 7;
 			chronicDiseaseCheckBox.Text = "Chronic Disease";
 			chronicDiseaseCheckBox.UseVisualStyleBackColor = true;
 			// 
@@ -265,7 +265,7 @@
 			otherCheckBox.Location = new Point(340, 373);
 			otherCheckBox.Name = "otherCheckBox";
 			otherCheckBox.Size = new Size(56, 19);
-			otherCheckBox.TabIndex = 22;
+			otherCheckBox.TabIndex = 8;
 			otherCheckBox.Text = "Other";
 			otherCheckBox.UseVisualStyleBackColor = true;
 			// 

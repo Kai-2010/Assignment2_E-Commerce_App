@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.IO;
-using static System.Windows.Forms.LinkLabel;
-
-namespace Assignment2test1
+﻿namespace Assignment2test1
 {
 	public partial class CommunityForum : Form
 	{
@@ -16,11 +10,13 @@ namespace Assignment2test1
 			InitializeComponent();
 			this.loggedInCustomer = loggedInCustomer;
 		}
-
+		// When the form loads, the list of previously saved posts are read from a text file along with the replies and added to a List
+		// Each of the post is added to a new textbox
+		// A flow panel layout is used to ensure the textboxes are dynamic and based on the number of posts
 		public void posts_Load(object sender, EventArgs e)
 		{
-			
-			string[] posts = File.ReadAllLines("post - Copy - Copy.txt").ToArray();
+			//Each line in the file has the post and related replies
+			string[] posts = utility.readPosts();
 			string replyBoxText = "";
 			
 			for (int i = 0; i < posts.Length; i++)
@@ -31,25 +27,32 @@ namespace Assignment2test1
 				// Add a TextBox for the post
 				TextBox postBox = new TextBox()
 				{
-					Multiline = true,   // Allow multiple lines of text
-					ScrollBars = ScrollBars.Vertical,   // Display vertical scrollbars if needed
+					Multiline = true,
+					ScrollBars = ScrollBars.Vertical,
 					Width = 200,
-					Height = 60// Set the desired height
+					Height = 60
 				};
 
-				postBox.Text = postsAndReplies.Count > 0 ? postsAndReplies[i].post : ""; // Display the first reply as post text
+				if (postsAndReplies.Count > 0)
+				{
+					postBox.Text = postsAndReplies[i].post;
+				}
+				else
+				{
+					postBox.Text = "";
+				}
 
 				flowLayoutPanel1.Controls.Add(postBox);
 
-				//Add a TextBox for the replies
+				//Add a TextBox for the replies of the post
 				TextBox replyBox = new TextBox
 				{
-					Multiline = true,   // Allow multiple lines of text
-					ScrollBars = ScrollBars.Vertical,   // Display vertical scrollbars if needed
+					Multiline = true,
+					ScrollBars = ScrollBars.Vertical,
 					Width = 500,
-					Height = 60// Set the desired height
+					Height = 60
 				};
-
+				// For each post, checking there are replies and add it to the text box
 				for (int ii = 0; ii < postsAndReplies[i].replies.Count; ii++)
 				{
 					replyBoxText = replyBoxText + (ii + 1).ToString() + ". " + postsAndReplies[i].replies[ii] + Environment.NewLine;
@@ -58,7 +61,7 @@ namespace Assignment2test1
 					replyBox.Dock = DockStyle.Fill;
 					flowLayoutPanel1.Controls.Add(replyBox);
 				
-				// Add a "Reply" button for each post
+				// Add a "Reply" button for each post and set the tag for the same
 				Button replyButton = new Button();
 				replyButton.Text = "Reply";
 				replyButton.Tag = i;
@@ -67,13 +70,14 @@ namespace Assignment2test1
 			}
 		}
 
+		// Allows the user add their reply to a post
 		private void ReplyButton_Click(object sender, EventArgs e)
 		{
 			Button clickedButton = (Button)sender;
 			int postIndex = (int)clickedButton.Tag;
 			List<string> contentToSave = new List<string>();
 			string contentToSaveString = "";
-			// Open a dialog for composing a reply
+			// Open a dialog for composing the reply
 			using (ResponseForm responseForm = new ResponseForm(postsAndReplies[postIndex]))
 			{
 				if (responseForm.ShowDialog() == DialogResult.OK)
@@ -81,7 +85,9 @@ namespace Assignment2test1
 					// Get the reply text from the response Form
 					string replyText = responseForm.replyString;
 					
-						// Save the reply text to the appropriate post in the data structure
+						// The reply is appended the list created at the time of loading the form
+						// The List is then saved to the text file with a pipe separator
+						// The user is redirected to the dashboard
 						postsAndReplies[postIndex].replies.Add(replyText);
 
 						for (int ii = 0; ii < postsAndReplies.Count; ii++)
@@ -94,19 +100,20 @@ namespace Assignment2test1
 							}
 							contentToSave.Add(contentToSaveString);
 						}
-						File.WriteAllLines("post - Copy - Copy.txt", contentToSave);
-					Hide();
+						File.WriteAllLines("post.txt", contentToSave);
+						Hide();
 						new DashBoard(loggedInCustomer).Show();
 				}
 			}
 		}
-
-		private void Submit_Click_1(object sender, EventArgs e)
+		// The method takes the user to the new page where where they can add a new post
+		private void newPost_Click_1(object sender, EventArgs e)
 		{
 			Hide();
 			new PostForm(loggedInCustomer, postsAndReplies).Show();
 		}
 
+		// When the Cancel button is clicked, this method takes the user back to the dashboard
 		private void Cancel_Click_1(object sender, EventArgs e)
 		{
 			Hide();

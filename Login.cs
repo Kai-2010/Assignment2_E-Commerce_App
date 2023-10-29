@@ -1,7 +1,3 @@
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Net;
-using System.Collections.Generic;
-
 namespace Assignment2test1
 {
 	public partial class Login : Form
@@ -12,9 +8,9 @@ namespace Assignment2test1
 		}
 
         // When the user clicks on the submit button validations are done to see if all the required details are entered.
-        // A linq query, based on the textbox entries by the userm is used to traverse through the HealthDB database
-		// and check if the credentials match, logging into the dashboard as a user if successful.
-        // If the login is not successful a message box is shown and prompts the user to reenter their details.
+        // A linq query, based on the textbox entries by the user is used to traverse through the list of customers initialized from the HealthDB database
+		// A check is done for the credentials match. If the credentials are matched, the dashboard is shown.
+        // If the login is not successful an error message box is shown and prompts the user to reenter their details.
         private void submit_Click(object sender, EventArgs e)
 		{
 			Customer newCustomer;
