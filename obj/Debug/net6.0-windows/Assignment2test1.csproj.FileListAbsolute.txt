@@ -301,8 +301,6 @@ C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-
 C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.PostForm.resources
 C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.Properties.Resources.resources
 C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.Registration.resources
-C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.Resource1.resources
-C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.Resource2.resources
 C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.Resource3.resources
 C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.ResponseForm.resources
 C:\Users\tcdin\Downloads\Assignment2_Health_App-main (2)\Assignment2_Health_App-main\Assignment2test1\obj\Debug\net6.0-windows\Assignment2test1.csproj.GenerateResource.cache
